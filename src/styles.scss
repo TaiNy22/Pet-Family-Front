@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+$major-light: #6F34CF;
+$major: #4D248F;
+$major-dark3: #472183;
+$major-dark2: #381A69;
+$major-dark1: #241142;
+
+//Text
+.txt-major {
+  color: $major;
+}
+
+.txt-major-light {
+  color: $major-light;
+}
+
+.txt-major-dark1 {
+  color: $major-dark1;
+}
+
+.txt-major-dark2 {
+  color: $major-dark2;
+}
+
+.txt-major-dark1 {
+  color: $major-dark1;
+}
+
+// Background
+.bg-major-light {
+  background-color: $major-light !important;
+}
+
+.bg-major {
+  background-color: $major !important;
+}
+
+.bg-major-dark1 {
+  background-color: $major-dark1 !important;
+}
+
+.bg-major-dark2 {
+  background-color: $major-dark2 !important;
+}
+
+.bg-major-dark3 {
+  background-color: $major-dark3 !important;
+}
+
+// Buttons
+.btn-major {
+  background-color: $major !important;
+
+  &:hover {
+    background-color: $major-dark2 !important;
+  }
+}

@@ -1,0 +1,12 @@
+<article class="avatar d-flex justify-content-center align-items-center"
+         [ngClass]="{'avatar-rounded' : form === avatarForm.ROUNDED}">
+  <img *ngIf="user"
+       class="avatar"
+       src="user.image" alt=""
+       [style.width]="width"
+       [style.height]="height">
+
+  <span class="icon-user"
+        [style.width]="width"
+        [style.height]="height"></span>
+</article>

@@ -1,0 +1,26 @@
+.sign-up {
+  height: 100vh;
+  width: 100%;
+}
+
+.sign-up-form {
+  width: 50%;
+}
+
+.sign-up-avatar {
+  height: 200px;
+  width: 100%;
+}
+
+.register {
+  text-decoration: none;
+}
+
+.image {
+  background-image: url("/assets/images/animals-background.png");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}

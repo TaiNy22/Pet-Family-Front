@@ -1,0 +1,81 @@
+<article class="w-100 pet-list d-flex flex-column justify-content-between">
+  <section class="w-100 list-head px-4 text-white">
+    <section>
+      <label class="fw-bold">Lista de Mascotas</label>
+    </section>
+
+    <section class="">
+      <span class="icon-list2 list-button"
+            (click)="toggleTableList()"></span>
+    </section>
+  </section>
+
+  <section class="d-flex flex-wrap justify-content-around align-items-center"
+           *ngIf="!showTableList">
+    <section class="col-12 col-sm-3 col-md-4 p-4">
+      <app-card-pet></app-card-pet>
+    </section>
+    <section class="col-12 col-sm-3 col-md-4 p-4">
+      <app-card-pet></app-card-pet>
+    </section>
+    <section class="col-12 col-sm-3 col-md-4 p-4">
+      <app-card-pet></app-card-pet>
+    </section>
+    <section class="col-12 col-sm-3 col-md-4 p-4">
+      <app-card-pet></app-card-pet>
+    </section>
+  </section>
+
+  <section class="w-100 px-4"
+           *ngIf="showTableList">
+    <section class="card">
+      <table class="table table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Especie</th>
+          <th scope="col">Opcion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>
+            <span class="list-button icon-checkmark text-info me-3"></span>
+            <span class="list-button icon-eye text-danger"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>
+            <span class="list-button icon-checkmark text-info me-3"></span>
+            <span class="list-button icon-eye text-danger"></span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Larry the Bird</td>
+          <td>
+            <span class="list-button icon-checkmark text-info me-3"></span>
+            <span class="list-button icon-eye text-danger"></span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Larry the Bird</td>
+          <td>
+            <span class="list-button icon-checkmark text-info me-3"></span>
+            <span class="list-button icon-eye text-danger"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <div></div>
+
+  <button class="btn btn-add">
+    <span class="icon-plus txt-major"></span>
+  </button>
+</article>

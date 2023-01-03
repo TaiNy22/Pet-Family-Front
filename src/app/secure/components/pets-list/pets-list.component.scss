@@ -1,0 +1,24 @@
+.pet-list {
+  height: 100vh;
+}
+
+.list-head {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add {
+  background-color: #fff;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.list-button {
+  cursor: pointer;
+}

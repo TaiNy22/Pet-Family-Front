@@ -1,0 +1,27 @@
+<article class="sign-in d-flex justify-content-center">
+  <section class="w-50 h-100 image"></section>
+
+  <section class="w-50 h-100 d-flex justify-content-center align-items-center">
+    <form class="card p-5 sign-in-form">
+      <label class="fw-bold txt-major fs-3 text-center">Iniciar Sesion</label>
+
+      <section class="sign-in-avatar">
+        <app-avatar [form]="avatarForm.ROUNDED"
+                    [height]="'200px'"
+                    [width]="'200px'"></app-avatar>
+      </section>
+
+      <input type="email" class="form-control mb-3" placeholder="Correo electronico">
+
+      <input type="password" class="form-control mb-3" placeholder="Contraseña">
+
+      <button class="btn btn-major text-white mb-4"
+              type="submit"
+              (click)="submit()">
+        Iniciar
+      </button>
+
+      <a class="register text-center txt-major" routerLink="/public/sign-up">Registrarse</a>
+    </form>
+  </section>
+</article>

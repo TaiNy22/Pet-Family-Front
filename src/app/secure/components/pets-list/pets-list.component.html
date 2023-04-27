@@ -10,72 +10,83 @@
     </section>
   </section>
 
-  <section class="d-flex flex-wrap justify-content-around align-items-center"
-           *ngIf="!showTableList">
-    <section class="col-12 col-sm-3 col-md-4 p-4">
-      <app-card-pet></app-card-pet>
+  <section>
+    <section class="col-12 col-sm-6 col-md-4 px-4">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Filtrar tipo de animal</option>
+        <option *ngFor="let animal of animalTypes" [value]="animal">{{animal}}</option>
+      </select>
     </section>
-    <section class="col-12 col-sm-3 col-md-4 p-4">
-      <app-card-pet></app-card-pet>
-    </section>
-    <section class="col-12 col-sm-3 col-md-4 p-4">
-      <app-card-pet></app-card-pet>
-    </section>
-    <section class="col-12 col-sm-3 col-md-4 p-4">
-      <app-card-pet></app-card-pet>
-    </section>
-  </section>
 
-  <section class="w-100 px-4"
-           *ngIf="showTableList">
-    <section class="card">
-      <table class="table table-responsive table-striped table-hover">
-        <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Especie</th>
-          <th scope="col">Opcion</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>
-            <span class="list-button icon-checkmark text-info me-3"></span>
-            <span class="list-button icon-eye text-danger"></span>
-          </td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>
-            <span class="list-button icon-checkmark text-info me-3"></span>
-            <span class="list-button icon-eye text-danger"></span>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">Larry the Bird</td>
-          <td>
-            <span class="list-button icon-checkmark text-info me-3"></span>
-            <span class="list-button icon-eye text-danger"></span>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">Larry the Bird</td>
-          <td>
-            <span class="list-button icon-checkmark text-info me-3"></span>
-            <span class="list-button icon-eye text-danger"></span>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <section class="d-flex flex-wrap justify-content-around align-items-center"
+             *ngIf="!showTableList">
+      <section class="col-12 col-sm-3 col-md-4 p-4">
+        <app-card-pet></app-card-pet>
+      </section>
+      <section class="col-12 col-sm-3 col-md-4 p-4">
+        <app-card-pet></app-card-pet>
+      </section>
+      <section class="col-12 col-sm-3 col-md-4 p-4">
+        <app-card-pet></app-card-pet>
+      </section>
+      <section class="col-12 col-sm-3 col-md-4 p-4">
+        <app-card-pet></app-card-pet>
+      </section>
+    </section>
+
+    <section class="w-100 p-4"
+             *ngIf="showTableList">
+      <section class="card">
+        <table class="table table-responsive table-striped table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Tipo Animal</th>
+            <th scope="col">Esterilizacion</th>
+            <th scope="col">Opciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>
+              <span class="list-button icon-checkmark text-info me-3"></span>
+              <span class="list-button icon-eye text-danger"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>
+              <span class="list-button icon-checkmark text-info me-3"></span>
+              <span class="list-button icon-eye text-danger"></span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Larry the Bird</td>
+            <td>
+              <span class="list-button icon-checkmark text-info me-3"></span>
+              <span class="list-button icon-eye text-danger"></span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Larry the Bird</td>
+            <td>
+              <span class="list-button icon-checkmark text-info me-3"></span>
+              <span class="list-button icon-eye text-danger"></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
     </section>
   </section>
 
   <div></div>
 
-  <button class="btn btn-add">
-    <span class="icon-plus txt-major"></span>
-  </button>
+  <app-add-button [title]="'Agregar Mascota'"
+                  (pressButton)="addPet()"></app-add-button>
 </article>

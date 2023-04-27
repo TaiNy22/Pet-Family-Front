@@ -1,0 +1,16 @@
+<section class="add-button">
+  <button class="btn btn-add"
+          [title]="title"
+          (mouseover)="activeShowTitle()"
+          (mouseleave)="hideShowTitle()"
+          (click)="pressedButton()">
+  <span class="txt-major fs-1"
+        [ngClass]="icon"></span>
+  </button>
+
+  <section class="btn-popover text-center"
+           *ngIf="showTitle">
+    <label class="fw-semibold">{{title}}</label>
+  </section>
+</section>
+

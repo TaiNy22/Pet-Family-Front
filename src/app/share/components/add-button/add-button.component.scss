@@ -1,0 +1,32 @@
+.add-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.btn-add {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  width: 60px;
+  border-radius: 50%;
+  transition-duration: 0.5s;
+  transition-property: transform;
+
+  &:hover {
+    background-color: #d5d5d5;
+    transform: rotate(90deg);
+  }
+}
+
+.btn-popover {
+  background-color: #ffffff;
+  border-radius: 20px;
+  bottom: 65px;
+  right: 0;
+  min-width: 150px;
+  padding: 8px;
+  position: absolute;
+}

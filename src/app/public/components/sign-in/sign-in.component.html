@@ -2,7 +2,7 @@
   <section class="w-50 h-100 image"></section>
 
   <section class="w-50 h-100 d-flex justify-content-center align-items-center">
-    <form class="card p-5 sign-in-form">
+    <form class="card p-5 sign-in-form" [formGroup]="loginForm" (ngSubmit)="submit()">
       <label class="fw-bold txt-major fs-3 text-center">Iniciar Sesion</label>
 
       <section class="sign-in-avatar">
@@ -11,15 +11,31 @@
                     [width]="'200px'"></app-avatar>
       </section>
 
-      <input type="email" class="form-control mb-3" placeholder="Correo electronico">
+      <input type="text" class="form-control mb-3" id="username"
+             placeholder="Nombre de Usuario"
+             formControlName="username"
+             [ngClass]="{'is-invalid': submitted && form['username'].errors}">
+      <div *ngIf="submitted && form['username'].errors" class="invalid-feedback">
+        <div *ngIf="form['username'].errors['required']">El nombre es requerido</div>
+      </div>
 
-      <input type="password" class="form-control mb-3" placeholder="Contraseña">
+      <input type="password" class="form-control mb-3" id="password"
+             placeholder="Contraseña"
+             formControlName="password"
+             [ngClass]="{'is-invalid': submitted && form['password'].errors}">
+      <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
+        <div *ngIf="form['password'].errors['required']">La contraseña es requerida</div>
+      </div>
 
       <button class="btn btn-major text-white mb-4"
               type="submit"
+              [disabled]="loading"
               (click)="submit()">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         Iniciar
       </button>
+
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
 
       <a class="register text-center txt-major" routerLink="/public/sign-up">Registrarse</a>
     </form>

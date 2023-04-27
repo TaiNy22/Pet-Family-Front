@@ -7,7 +7,7 @@ import {PublicComponent} from "./public.component";
 const routes: Routes = [
   {path: '', component: PublicComponent},
   {path: 'sign-in', component: SignInComponent},
-  {path: 'sign-up', component: SignUpComponent}
+  {path: 'sign-up', component: SignUpComponent},
 ];
 
 @NgModule({

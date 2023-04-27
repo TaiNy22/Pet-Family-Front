@@ -5,6 +5,7 @@ import {PublicRoutingModule} from "./public-routing.module";
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {ShareModule} from "../share/share.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {ShareModule} from "../share/share.module";
   imports: [
     CommonModule,
     PublicRoutingModule,
-    ShareModule
+    ShareModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PublicModule {

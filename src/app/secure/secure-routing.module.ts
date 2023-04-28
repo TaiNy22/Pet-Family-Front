@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SecureComponent} from "./secure.component";
-import {PetsListComponent} from "./components/pets-list/pets-list.component";
 
 const routes: Routes = [
   {
     path: '', component: SecureComponent,
     children: [
-      {path: '', redirectTo: 'pet-list', pathMatch: 'full'},
-      {path: 'pet-list', component: PetsListComponent},
-      {path: 'add-pet', component: SecureComponent},
+      {path: '', redirectTo: 'pet', pathMatch: 'full'},
+      {
+        path: 'pet', loadChildren: () => import('./modules/pet/pet.module').then(m => m.PetModule)
+      },
     ]
   },
 ];

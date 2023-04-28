@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router, Routes} from "@angular/router";
 
 @Component({
-  selector: 'app-pets-list',
-  templateUrl: './pets-list.component.html',
-  styleUrls: ['./pets-list.component.scss']
+  selector: 'app-pet-list',
+  templateUrl: './pet-list.component.html',
+  styleUrls: ['./pet-list.component.scss']
 })
-export class PetsListComponent implements OnInit {
-
+export class PetListComponent implements OnInit {
   public showTableList: boolean;
   public animalTypes: string[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.showTableList = false;
     this.animalTypes = [];
   }
@@ -24,6 +24,6 @@ export class PetsListComponent implements OnInit {
   }
 
   public addPet(): void {
-    console.log('aaaa')
+    this.router.navigate(['/secure/pet/pet-form']).then(r => console.log('add'));
   }
 }

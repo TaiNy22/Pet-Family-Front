@@ -10,6 +10,7 @@ import {AuthenticationService} from "./services/auth-http.service";
 import {AuthInterceptor} from "./helpers/error.interceptor";
 import {ErrorInterceptor} from "./helpers/jwt.interceptor";
 import {ShareModule} from "./share/share.module";
+import {PetHttpService} from "./services/pet-http.service";
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import {ShareModule} from "./share/share.module";
     ShareModule
   ],
   providers: [
-    UserHttpService,
     AuthenticationService,
+    PetHttpService,
+    UserHttpService,
     {provide: LOCALE_ID, useValue: 'es'},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

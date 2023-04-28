@@ -1,0 +1,96 @@
+<article class="container">
+  <section class="py-2">
+    <label class="fs-3 fw-bold text-white">Agregar Mascota</label>
+  </section>
+
+  <section class="d-flex row align-items-center justify-content-center">
+    <section class="col-12 col-md-6 p-0">
+      <form class="card p-4" [formGroup]="petForm" (ngSubmit)="submit()" novalidate>
+        <label class="form-label"
+               for="name">Nombre:</label>
+        <input class="form-control mb-3"
+               type="text"
+               id="name"
+               formControlName="name"
+               placeholder="Ej. Cachuchin"
+               [ngClass]="{'is-invalid': submitted && form['name'].errors}">
+
+        <label class="form-label"
+               for="type">Tipo:</label>
+        <select class="form-select mb-3" id="type" formControlName="type"
+                [ngClass]="{'is-invalid': submitted && form['type'].errors}">
+          <option [value]="'ALL'">Otro</option>
+          <option [value]="'BIRD'">Ave</option>
+          <option [value]="'CAT'">Gato</option>
+          <option [value]="'DOG'">Perro</option>
+          <option [value]="'FISH'">Pez</option>
+          <option [value]="'MOUSE'">Roedor</option>
+        </select>
+
+        <label class="form-label"
+               for="gender">Género:</label>
+        <select class="form-select mb-3" id="gender" formControlName="gender"
+                [ngClass]="{'is-invalid': submitted && form['gender'].errors}">
+          <option [value]="'male'">Macho</option>
+          <option [value]="'female'">Hembra</option>
+          <option [value]="'other'">Otro</option>
+        </select>
+
+        <label class="form-label"
+               for="age">Edad:</label>
+        <input class="form-control mb-3"
+               type="number"
+               id="age"
+               formControlName="age"
+               [ngClass]="{'is-invalid': submitted && form['age'].errors}">
+
+        <section class="mb-3">
+          <label class="form-label"
+                 for="weight">Peso:</label>
+          <section class="d-flex align-items-center">
+            <section class="col-11">
+              <input class="form-control col-6"
+                     type="number"
+                     id="weight"
+                     formControlName="weight"
+                     [ngClass]="{'is-invalid': submitted && form['weight'].errors}">
+            </section>
+            <div class="col-1 ms-2">Kg.</div>
+          </section>
+        </section>
+
+        <section class="d-flex mb-3">
+          <label class="form-check-label me-2"
+                 for="sterilization">Esterelización:</label>
+          <section class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="sterilization"
+                   formControlName="sterilization">
+          </section>
+        </section>
+
+        <label class="form-label"
+               for="avatar">Foto:</label>
+        <input class="form-control mb-3"
+               type="file"
+               id="avatar"
+               formControlName="avatar"
+               accept="image/png, image/jpeg"
+               [ngClass]="{'is-invalid': submitted && form['avatar'].errors}">
+
+        <button class="btn btn-major text-white mb-2"
+                type="submit">
+          Guardar
+        </button>
+
+        <button class="btn btn-light"
+                (click)="cancelAdd()">
+          Cancelar
+        </button>
+      </form>
+    </section>
+
+    <section class="bg-light d-none d-md-block col-12 col-md-6 p-0 image-section">
+      <section class="w-100 h-100 image"></section>
+    </section>
+  </section>
+</article>

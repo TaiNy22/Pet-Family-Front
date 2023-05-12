@@ -20,21 +20,15 @@
 
     <section class="d-flex flex-wrap justify-content-around align-items-center"
              *ngIf="!showTableList">
-      <section class="col-12 col-sm-3 col-md-4 p-4">
-        <app-pet-card></app-pet-card>
-      </section>
-      <section class="col-12 col-sm-3 col-md-4 p-4">
-        <app-pet-card></app-pet-card>
-      </section>
-      <section class="col-12 col-sm-3 col-md-4 p-4">
-        <app-pet-card></app-pet-card>
-      </section>
-      <section class="col-12 col-sm-3 col-md-4 p-4">
-        <app-pet-card></app-pet-card>
+      <section class="col-12 col-sm-3 col-md-3 col-lg-2 p-4"
+               *ngFor="let pet of petList">
+        <app-pet-card [pet]="pet"
+                      (deletePet)="deletePet($event)"
+                      (editPet)="editPet($event)"></app-pet-card>
       </section>
     </section>
 
-    <section class="w-100 p-4"
+    <section class="container w-100 p-4"
              *ngIf="showTableList">
       <section class="card">
         <table class="table table-responsive table-striped table-hover">
@@ -49,34 +43,19 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let pet of petList">
+            <td>{{pet.name | titlecase}}</td>
+            <td *ngIf="pet.age">{{pet.age}}</td>
+            <td *ngIf="!pet.age">--</td>
+            <td>{{processGender(pet.gender)}}</td>
+            <td>{{pet.type}}</td>
+            <td class="text-success" *ngIf="pet.sterilization">SI</td>
+            <td class="text-danger" *ngIf="!pet.sterilization">NO</td>
             <td>
-              <span class="list-button icon-checkmark text-info me-3"></span>
-              <span class="list-button icon-eye text-danger"></span>
-            </td>
-          </tr>
-          <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>
-              <span class="list-button icon-checkmark text-info me-3"></span>
-              <span class="list-button icon-eye text-danger"></span>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">Larry the Bird</td>
-            <td>
-              <span class="list-button icon-checkmark text-info me-3"></span>
-              <span class="list-button icon-eye text-danger"></span>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">Larry the Bird</td>
-            <td>
-              <span class="list-button icon-checkmark text-info me-3"></span>
-              <span class="list-button icon-eye text-danger"></span>
+              <span class="list-button fa-solid fa-pen text-info me-3"
+                    (click)="editPet(pet.id)"></span>
+              <span class="list-button fa-solid fa-trash text-danger"
+                    (click)="deletePet(pet.id)"></span>
             </td>
           </tr>
           </tbody>

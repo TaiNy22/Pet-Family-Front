@@ -1,0 +1,35 @@
+.options-button {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 5px -1px rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  width: 26px;
+}
+
+.options-button-view {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px -5px rgb(0, 0, 0);
+  padding: 10px;
+}
+
+.options-button-option {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  justify-content: start;
+  width: 80px;
+
+  .fa-solid {
+    margin-right: 5px;
+    width: 16px;
+  }
+
+  &:hover {
+    background-color: #efefef;
+  }
+}

@@ -1,8 +1,13 @@
-.image {
-  height: 90%;
-  width: 90%;
+.pet-card {
+  position: relative;
 }
 
-.card-image {
-  height: 150px;
+.pet-card-icon {
+  font-size: 80px;
+}
+
+.pet-card-options {
+  position: absolute;
+  right: 3px;
+  top: 3px;
 }

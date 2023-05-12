@@ -1,9 +1,32 @@
-<article class="d-flex justify-content-center flex-column align-items-center card shadow card-pet">
-  <section class="p-3 d-flex justify-content-center align-items-center">
-    <img class="image" src="./assets/images/animals/dog-solid.svg" alt="">
+<article class="pet-card p-2 d-flex justify-content-center flex-column align-items-center card shadow card-pet"
+         *ngIf="pet"
+         (mouseleave)="hideOptions()"
+         (mouseover)="toggleShowOptions()">
+  <section class="pet-card-options"
+           *ngIf="showOptions">
+    <app-options-button (edit)="editPetAction()"
+                        (delete)="deletePetAction()"></app-options-button>
   </section>
 
-  <section class="card-body">
-    <label class="fw-semibold txt-major">name</label>
+  <section class="d-flex justify-content-center align-items-center">
+    <section class="pet-card-avatar"
+             *ngIf="pet.avatar">
+      <!--      TODO-->
+    </section>
+
+    <section class="pet-card-avatar"
+             *ngIf="!pet.avatar"
+             [ngSwitch]="pet.type">
+      <i *ngSwitchCase="'ALL'" class="pet-card-icon fa-solid fa-paw"></i>
+      <i *ngSwitchCase="'BIRD'" class="pet-card-icon fa-solid fa-crow"></i>
+      <i *ngSwitchCase="'DOG'" class="pet-card-icon fa-solid fa-dog"></i>
+      <i *ngSwitchCase="'CAT'" class="pet-card-icon fa-solid fa-cat"></i>
+      <i *ngSwitchCase="'FISH'" class="pet-card-icon fa-solid fa-fish-fins"></i>
+      <i *ngSwitchCase="'MOUSE'" class="pet-card-icon fa-solid fa-otter"></i>
+    </section>
+  </section>
+
+  <section class="pt-1">
+    <label class="fw-semibold txt-major">{{pet.name | titlecase}}</label>
   </section>
 </article>

@@ -1,0 +1,21 @@
+<div class="options-button"
+     *ngIf="!showOptions"
+     (click)="toggleShowOptions()">
+  <i class="fa-solid fa-ellipsis"></i>
+</div>
+
+<article class="options-button-view"
+         (mouseleave)="hideOptions()"
+         *ngIf="showOptions">
+  <div class="options-button-option"
+       (click)="editAction()">
+    <i class="fa-solid fa-pen"></i>
+    <span>Editar</span>
+  </div>
+
+  <div class="options-button-option"
+       (click)="deleteAction()">
+    <i class="fa-solid fa-trash"></i>
+    <span>Eliminar</span>
+  </div>
+</article>

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {PetHttpService} from "../../../../../services/pet-http.service";
 import {take} from "rxjs";
+import {TokenStorageService} from "../../../../../services/token-storage.service";
 
 @Component({
   selector: 'app-pet-add',
@@ -14,7 +15,8 @@ export class PetAddComponent implements OnInit {
   public petForm!: FormGroup;
   public submitted: boolean;
 
-  constructor(private petService: PetHttpService,
+  constructor(private tokenStorageService: TokenStorageService,
+              private petService: PetHttpService,
               private formBuilder: FormBuilder,
               private router: Router) {
     this.submitted = false;
@@ -35,7 +37,6 @@ export class PetAddComponent implements OnInit {
       return;
     }
 
-    console.log('enviar', this.petForm.value)
     this.petService.create(this.petForm.value)
       .pipe(take(1))
       .subscribe({
@@ -58,9 +59,10 @@ export class PetAddComponent implements OnInit {
       avatar: [''],
       gender: ['', Validators.required],
       name: ['', Validators.required],
-      sterilization: [''],
+      sterilization: [false],
       type: ['', Validators.required],
-      weight: ['']
+      weight: [''],
+      userId: [this.tokenStorageService.getUser()?.id]
     });
   }
 }

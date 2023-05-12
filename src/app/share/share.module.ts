@@ -4,12 +4,14 @@ import {AvatarComponent} from './components/avatar/avatar.component';
 import {AddButtonComponent} from './components/add-button/add-button.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {RouterModule} from "@angular/router";
+import {OptionsButtonComponent} from './components/options-button/options-button.component';
 
 @NgModule({
   declarations: [
     AvatarComponent,
     AddButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    OptionsButtonComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import {RouterModule} from "@angular/router";
   exports: [
     AvatarComponent,
     AddButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    OptionsButtonComponent
   ]
 })
 export class ShareModule {

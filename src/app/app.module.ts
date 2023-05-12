@@ -11,6 +11,7 @@ import {AuthInterceptor} from "./helpers/error.interceptor";
 import {ErrorInterceptor} from "./helpers/jwt.interceptor";
 import {ShareModule} from "./share/share.module";
 import {PetHttpService} from "./services/pet-http.service";
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {PetHttpService} from "./services/pet-http.service";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ShareModule
+    ShareModule,
+    FontAwesomeModule
   ],
   providers: [
     AuthenticationService,

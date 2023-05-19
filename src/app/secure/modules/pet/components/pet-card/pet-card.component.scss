@@ -1,9 +1,11 @@
 .pet-card {
+  cursor: pointer;
+  height: 100%;
   position: relative;
 }
 
 .pet-card-icon {
-  font-size: 80px;
+  font-size: 150px;
 }
 
 .pet-card-options {

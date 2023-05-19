@@ -1,0 +1,51 @@
+<article class="bg-major-dark3 container pet-list d-flex flex-column justify-content-between">
+  <section class="pet-view-back-button"
+           *ngIf="!showPetInfo"
+           [routerLink]="['/secure/pet/pet-list']">
+    <i class="fa-solid fa-chevron-left"></i>
+    <span class="text-white fs-3 ms-2 mb-2">Atras</span>
+  </section>
+
+  <section class="w-100 list-head mx-4 text-white"
+           *ngIf="!showPetInfo">
+    <section class="pt-4">
+      <label class="fs-3 fw-bold text-white">{{pet?.name | titlecase}}</label>
+    </section>
+  </section>
+
+  <section *ngIf="!showPetInfo">
+    <section class="d-flex flex-wrap justify-content-around align-items-center">
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+        <section class="pet-view-card card d-flex align-items-center justify-content-center p-2"
+                 (click)="toggleShowPetInfo(true)">
+          <i class="fa-solid fa-circle-info"></i>
+        </section>
+      </section>
+
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+        <section class="pet-view-card card d-flex align-items-center justify-content-center p-2"
+                 [routerLink]="['/secure/pet/vaccine']">
+          <i class="fa-solid fa-syringe"></i>
+        </section>
+      </section>
+
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+        <section class="pet-view-card card d-flex align-items-center justify-content-center p-2">
+          <i class="fa-solid fa-briefcase-medical"></i>
+        </section>
+      </section>
+
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+        <section class="pet-view-card card d-flex align-items-center justify-content-center p-2">
+          <i class="fa-solid fa-pills"></i>
+        </section>
+      </section>
+    </section>
+  </section>
+
+  <section class=""
+           *ngIf="showPetInfo">
+    <app-pet-info [pet]="pet"
+                  (closePetInfo)="toggleShowPetInfo($event)"></app-pet-info>
+  </section>
+</article>

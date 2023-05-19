@@ -40,6 +40,10 @@ export class PetListComponent implements OnInit {
     this.router.navigate(['/secure/pet/pet-edit/' + petId]).then();
   }
 
+  public selectPet(petId: number): void {
+    this.router.navigate(['/secure/pet/pet-info/' + petId]).then();
+  }
+
   public processGender(gender: string): string {
     switch (gender) {
       case 'male':

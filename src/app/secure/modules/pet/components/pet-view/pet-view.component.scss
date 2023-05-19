@@ -1,0 +1,39 @@
+.pet-view {
+}
+
+.pet-view-back-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+
+  .fa-solid {
+    color: #ffffff;
+    font-size: 25px;
+  }
+}
+
+.pet-view-card {
+  cursor: pointer;
+  height: 250px;
+  box-shadow: 0 0 30px -5px #282828;
+
+  .fa-solid {
+    font-size: 200px;
+  }
+
+  .fa-circle-info {
+    color: #0077c7;
+  }
+
+  .fa-syringe {
+    color: #00afaf;
+  }
+
+  .fa-briefcase-medical {
+    color: #dc3232;
+  }
+
+  .fa-pills {
+    color: #04bea9;
+  }
+}

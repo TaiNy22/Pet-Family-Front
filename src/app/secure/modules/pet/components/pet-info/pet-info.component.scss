@@ -1,0 +1,25 @@
+.pet-info {
+  position: relative;
+}
+
+.pet-info-colum {
+  height: 500px;
+}
+
+.pet-info-image {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 400px;
+  width: 400px;
+}
+
+.pet-info-back-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+
+  .fa-solid {
+    color: #ffffff;
+    font-size: 25px;
+  }
+}

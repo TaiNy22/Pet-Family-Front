@@ -11,16 +11,22 @@ export class PetCardComponent implements OnInit {
 
   @Output() public editPet: EventEmitter<number>;
   @Output() public deletePet: EventEmitter<number>;
+  @Output() public openPet: EventEmitter<number>;
 
   public showOptions: boolean;
 
   constructor() {
     this.deletePet = new EventEmitter<number>();
     this.editPet = new EventEmitter<number>();
+    this.openPet = new EventEmitter<number>();
     this.showOptions = false;
   }
 
   ngOnInit(): void {
+  }
+
+  public selectPet(): void {
+    this.openPet.emit(this.pet.id);
   }
 
   public toggleShowOptions(): void {

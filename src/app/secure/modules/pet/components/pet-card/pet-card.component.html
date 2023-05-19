@@ -1,17 +1,18 @@
-<article class="pet-card p-2 d-flex justify-content-center flex-column align-items-center card shadow card-pet"
+<article class="pet-card d-flex justify-content-between flex-column align-items-center card shadow card-pet"
          *ngIf="pet"
          (mouseleave)="hideOptions()"
-         (mouseover)="toggleShowOptions()">
+         (mouseover)="toggleShowOptions()"
+         (click)="selectPet()">
   <section class="pet-card-options"
            *ngIf="showOptions">
     <app-options-button (edit)="editPetAction()"
                         (delete)="deletePetAction()"></app-options-button>
   </section>
 
-  <section class="d-flex justify-content-center align-items-center">
+  <section class="d-flex justify-content-center align-items-center m-auto">
     <section class="pet-card-avatar"
              *ngIf="pet.avatar">
-      <!--      TODO-->
+      <!-- TODO-->
     </section>
 
     <section class="pet-card-avatar"
@@ -26,7 +27,7 @@
     </section>
   </section>
 
-  <section class="pt-1">
-    <label class="fw-semibold txt-major">{{pet.name | titlecase}}</label>
+  <section class="py-3">
+    <label class="fw-semibold txt-major fs-4 fw-bolder">{{pet.name | titlecase}}</label>
   </section>
 </article>

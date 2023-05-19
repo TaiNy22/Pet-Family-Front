@@ -20,11 +20,12 @@
 
     <section class="d-flex flex-wrap justify-content-around align-items-center"
              *ngIf="!showTableList">
-      <section class="col-12 col-sm-3 col-md-3 col-lg-2 p-4"
+      <section class="pet-list-card col-6 col-md-6 col-lg-4 col-xxl-3 p-4"
                *ngFor="let pet of petList">
         <app-pet-card [pet]="pet"
                       (deletePet)="deletePet($event)"
-                      (editPet)="editPet($event)"></app-pet-card>
+                      (editPet)="editPet($event)"
+                      (openPet)="selectPet($event)"></app-pet-card>
       </section>
     </section>
 
@@ -43,7 +44,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let pet of petList">
+          <tr class="pet-list-item" *ngFor="let pet of petList"
+              (click)="selectPet(pet.id)">
             <td>{{pet.name | titlecase}}</td>
             <td *ngIf="pet.age">{{pet.age}}</td>
             <td *ngIf="!pet.age">--</td>

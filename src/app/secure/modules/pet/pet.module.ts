@@ -10,6 +10,9 @@ import {ShareModule} from "../../../share/share.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {PetEditFormComponent} from './components/pet-edit-form/pet-edit-form.component';
+import {PetViewComponent} from './components/pet-view/pet-view.component';
+import {RouterModule} from "@angular/router";
+import { PetInfoComponent } from './components/pet-info/pet-info.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import {PetEditFormComponent} from './components/pet-edit-form/pet-edit-form.com
     PetListComponent,
     PetCardComponent,
     PetAddComponent,
-    PetEditFormComponent
+    PetEditFormComponent,
+    PetViewComponent,
+    PetInfoComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +30,8 @@ import {PetEditFormComponent} from './components/pet-edit-form/pet-edit-form.com
     ShareModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule
   ]
 })
 export class PetModule {

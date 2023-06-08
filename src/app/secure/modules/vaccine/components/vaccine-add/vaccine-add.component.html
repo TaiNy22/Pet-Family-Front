@@ -1,0 +1,46 @@
+<article class="vaccine-add card p-3 shadow">
+  <section class="d-flex justify-content-between align-items-center">
+    <label class="fw-bold fs-4 txt-major">Agregar Vacuna</label>
+
+    <button class="btn"
+            (click)="cancel()">
+      <i class="fa-solid fa-xmark text-danger fs-3"></i>
+    </button>
+  </section>
+
+  <section class="vaccine-add-form">
+    <form class="my-4">
+      <section class="mb-3">
+        <label class="form-label">Vacuna</label>
+        <input class="form-control" type="text" [(ngModel)]="vaccine" name="vaccine"/>
+      </section>
+
+      <section class="mb-3">
+        <label class="form-label">Fecha</label>
+        <input class="form-control" type="date"
+               [ngModel]="date | date:'yyyy-MM-dd':'UTC+4'"
+               (ngModelChange)="date = $event"
+               name="date"/>
+      </section>
+
+      <section class="mb-3">
+        <label class="form-label">Realizado</label>
+        <div class="form-check form-switch">
+          <input class="form-check-input"
+                 type="checkbox"
+                 role="switch" [(ngModel)]="done" name="done">
+        </div>
+      </section>
+    </form>
+  </section>
+
+  <section class="d-flex flex-wrap justify-content-between align-items-center">
+    <button class="btn btn-major text-white col-12 col-md-5 mb-2 mb-md-0"
+            (click)="saveVaccine()">Guardar
+    </button>
+
+    <button class="btn btn-danger text-white col-12 col-md-5"
+            (click)="cancel()">Cancelar
+    </button>
+  </section>
+</article>

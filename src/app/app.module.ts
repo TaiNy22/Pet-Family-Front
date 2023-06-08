@@ -12,6 +12,11 @@ import {ErrorInterceptor} from "./helpers/jwt.interceptor";
 import {ShareModule} from "./share/share.module";
 import {PetHttpService} from "./services/pet-http.service";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {VaccineHttpService} from "./services/vaccine-http.service";
+import {registerLocaleData} from "@angular/common";
+import es from '@angular/common/locales/es-BO';
+
+registerLocaleData(es);
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AuthenticationService,
     PetHttpService,
     UserHttpService,
-    {provide: LOCALE_ID, useValue: 'es'},
+    VaccineHttpService,
+    {provide: LOCALE_ID, useValue: 'es-BO'},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],

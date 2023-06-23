@@ -1,0 +1,42 @@
+<article class="treatment-add card p-3 shadow">
+  <section class="d-flex justify-content-between align-items-center">
+    <label class="fw-bold fs-4 txt-major">Agregar Tratamiento</label>
+
+    <button class="btn"
+            (click)="cancel()">
+      <i class="fa-solid fa-xmark text-danger fs-3"></i>
+    </button>
+  </section>
+
+  <section class="treatment-add-form">
+    <form class="my-4">
+      <section class="mb-3">
+        <label class="form-label">Título</label>
+        <input class="form-control" type="text" [(ngModel)]="title" name="title"/>
+      </section>
+
+      <section class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea class="form-control" [(ngModel)]="description" name="description" rows="5" maxlength="200"></textarea>
+      </section>
+
+      <section class="mb-3">
+        <label class="form-label">Próxima Cita</label>
+        <input class="form-control" type="date"
+               [ngModel]="date | date:'yyyy-MM-dd':'UTC+4'"
+               (ngModelChange)="date = $event"
+               name="date"/>
+      </section>
+    </form>
+  </section>
+
+  <section class="d-flex flex-wrap justify-content-between align-items-center">
+    <button class="btn btn-major text-white col-12 col-md-5 mb-2 mb-md-0"
+            (click)="saveTreatment()">Guardar
+    </button>
+
+    <button class="btn btn-danger text-white col-12 col-md-5"
+            (click)="cancel()">Cancelar
+    </button>
+  </section>
+</article>

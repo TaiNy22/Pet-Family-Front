@@ -28,7 +28,7 @@ export class VaccineAddComponent implements OnInit {
   }
 
   public ngOnInit() {
-    if (this.vaccineEdit) {
+    if (this.vaccineEdit && this.editModeActive) {
       this.vaccine = this.vaccineEdit.type;
       this.date = this.vaccineEdit.date;
       this.done = this.vaccineEdit.done;

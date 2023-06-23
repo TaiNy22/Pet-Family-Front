@@ -1,0 +1,51 @@
+<article class="treatment-list container">
+  <section class="treatment-info-back-button mb-4"
+           (click)="closePet()">
+    <i class="fa-solid fa-chevron-left"></i>
+    <span class="text-white fs-3 ms-2 mb-2">Átras</span>
+  </section>
+
+  <section class="container w-100 p-4">
+    <section class="card">
+      <table class="table table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Próxima Cita</th>
+          <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="pet-list-item" *ngFor="let treatment of treatmentList">
+          <td>{{treatment.title | titlecase}}</td>
+          <td>{{treatment.description}} {{treatment.description.length}}</td>
+          <td>{{treatment.date | date:'dd MMM yyyy':'UTC+4'}}</td>
+          <td>
+            <span class="list-button fa-solid fa-pen text-info me-3"
+                  (click)="editTreatment(treatment)"></span>
+
+            <span class="list-button fa-solid fa-trash text-danger"
+                  (click)="deleteTreatment(treatment)"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</article>
+
+<section class="treatment-list-add-container w-100 h-100"
+         *ngIf="showAddTreatment">
+  <section class="treatment-list-add">
+    <app-treatment-add [petId]="petId"
+                       [treatmentEdit]="treatmentToEdit"
+                       [editModeActive]="editModeActive"
+                       (emitTreatment)="saveNewTreatment($event)"
+                       (cancelAdd)="cancelAddTreatment()"></app-treatment-add>
+  </section>
+</section>
+
+<app-add-button [title]="'Agregar Tratamiento'"
+                (pressButton)="addTreatmentModal()"></app-add-button>

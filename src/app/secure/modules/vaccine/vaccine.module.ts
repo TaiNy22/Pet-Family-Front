@@ -8,7 +8,6 @@ import {ShareModule} from "../../../share/share.module";
 import {VaccineAddComponent} from './components/vaccine-add/vaccine-add.component';
 import {FormsModule} from "@angular/forms";
 
-
 @NgModule({
   declarations: [
     VaccineComponent,

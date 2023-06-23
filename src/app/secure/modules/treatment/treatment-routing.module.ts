@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {VaccineComponent} from "./vaccine.component";
-import {VaccineListComponent} from "./components/vaccine-list/vaccine-list.component";
+import {TreatmentComponent} from "./treatment.component";
+import {TreatmentListComponent} from "./components/treatment-list/treatment-list.component";
 
 const routes: Routes = [
   {
-    path: '', component: VaccineComponent,
+    path: '', component: TreatmentComponent,
     children: [
       {path: '', redirectTo: 'list', pathMatch: 'full'},
-      {path: 'list/:id', component: VaccineListComponent}
+      {path: 'list/:id', component: TreatmentListComponent}
     ]
   }
 ];
@@ -17,5 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VaccineRoutingModule {
+export class TreatmentRoutingModule {
 }

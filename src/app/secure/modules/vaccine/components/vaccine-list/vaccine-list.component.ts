@@ -84,6 +84,7 @@ export class VaccineListComponent implements OnInit {
 
   public cancelAddVaccine(): void {
     this.showAddVaccine = false;
+    this.editModeActive = false;
   }
 
   public deleteVaccine(vaccine: Vaccine): void {

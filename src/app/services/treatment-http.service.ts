@@ -3,12 +3,12 @@ import {Injectable} from '@angular/core';
 import {catchError, Observable, throwError} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {TokenStorageService} from "./token-storage.service";
-import {Vaccine} from "../models/vaccine";
+import {Treatment} from "../models/treatment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class VaccineHttpService {
+export class TreatmentHttpService {
   private readonly token: string | null = this.tokenStorageService.getToken();
 
   httpOptions = {
@@ -22,39 +22,39 @@ export class VaccineHttpService {
               private httpClient: HttpClient) {
   }
 
-  create(vaccine: any): Observable<Vaccine> {
-    return this.httpClient.post<Vaccine>(environment.apiUrl + '/vaccines', JSON.stringify(vaccine), this.httpOptions)
+  create(treatment: any): Observable<Treatment> {
+    return this.httpClient.post<Treatment>(environment.apiUrl + '/treatments', JSON.stringify(treatment), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   // Encontrar por ID
-  getById(id: string): Observable<Vaccine> {
-    return this.httpClient.get<Vaccine>(environment.apiUrl + '/vaccines/' + id, this.httpOptions)
+  getById(id: string): Observable<Treatment> {
+    return this.httpClient.get<Treatment>(environment.apiUrl + '/treatments/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   // Encontrar por ID de pet
-  getByPetId(id: string): Observable<Vaccine[]> {
-    return this.httpClient.get<Vaccine[]>(environment.apiUrl + '/vaccines/pet/' + id, this.httpOptions)
+  getByPetId(id: string): Observable<Treatment[]> {
+    return this.httpClient.get<Treatment[]>(environment.apiUrl + '/treatments/pet/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
-  getAll(): Observable<Vaccine[]> {
-    return this.httpClient.get<Vaccine[]>(environment.apiUrl + '/vaccines', this.httpOptions)
+  getAll(): Observable<Treatment[]> {
+    return this.httpClient.get<Treatment[]>(environment.apiUrl + '/treatments', this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   // Editar por id
-  edit(id: number, vaccine: any): Observable<Vaccine> {
-    return this.httpClient.put<Vaccine>(environment.apiUrl + '/vaccines/' + id, JSON.stringify(vaccine), this.httpOptions)
+  edit(id: number, treatment: any): Observable<Treatment> {
+    return this.httpClient.put<Treatment>(environment.apiUrl + '/treatments/' + id, JSON.stringify(treatment), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );
@@ -62,7 +62,7 @@ export class VaccineHttpService {
 
   // Eliminar por id
   delete(id: number): Observable<void> {
-    return this.httpClient.delete<void>(environment.apiUrl + '/vaccines/' + id, this.httpOptions)
+    return this.httpClient.delete<void>(environment.apiUrl + '/treatments/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       );

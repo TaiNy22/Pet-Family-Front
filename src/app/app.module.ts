@@ -15,6 +15,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {VaccineHttpService} from "./services/vaccine-http.service";
 import {registerLocaleData} from "@angular/common";
 import es from '@angular/common/locales/es-BO';
+import {TreatmentHttpService} from "./services/treatment-http.service";
 
 registerLocaleData(es);
 
@@ -34,6 +35,7 @@ registerLocaleData(es);
   providers: [
     AuthenticationService,
     PetHttpService,
+    TreatmentHttpService,
     UserHttpService,
     VaccineHttpService,
     {provide: LOCALE_ID, useValue: 'es-BO'},

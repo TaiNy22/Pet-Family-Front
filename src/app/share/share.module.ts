@@ -5,13 +5,15 @@ import {AddButtonComponent} from './components/add-button/add-button.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {RouterModule} from "@angular/router";
 import {OptionsButtonComponent} from './components/options-button/options-button.component';
+import {SideBarComponent} from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
     AvatarComponent,
     AddButtonComponent,
     NavbarComponent,
-    OptionsButtonComponent
+    OptionsButtonComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {OptionsButtonComponent} from './components/options-button/options-button
     AvatarComponent,
     AddButtonComponent,
     NavbarComponent,
-    OptionsButtonComponent
+    OptionsButtonComponent,
+    SideBarComponent
   ]
 })
 export class ShareModule {

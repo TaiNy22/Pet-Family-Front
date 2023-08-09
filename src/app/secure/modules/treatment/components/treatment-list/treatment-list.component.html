@@ -20,7 +20,7 @@
         <tbody>
         <tr class="pet-list-item" *ngFor="let treatment of treatmentList">
           <td>{{treatment.title | titlecase}}</td>
-          <td>{{treatment.description}} {{treatment.description.length}}</td>
+          <td>{{treatment.description}}</td>
           <td>{{treatment.date | date:'dd MMM yyyy':'UTC+4'}}</td>
           <td>
             <span class="list-button fa-solid fa-pen text-info me-3"

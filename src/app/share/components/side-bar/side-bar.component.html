@@ -1,0 +1,30 @@
+<article class="side-bar">
+  <section class="side-bar-header">
+    <span class="fa-solid fa-paw"></span>
+
+    <label class="fw-bold fs-4">Pet Family</label>
+  </section>
+
+  <section class="side-bar-close"
+           title="Close"
+           (click)="closeSideBar()">
+    <span class="fa-solid fa-xmark"></span>
+  </section>
+
+  <section class="side-bar-item"
+           *ngFor="let item of menuList">
+    <span class="fa-solid"
+          [ngClass]="item.icon"></span>
+
+    <label class="side-bar-item-text fw-bold fs-4"
+           [title]="item.name">{{item.name}}</label>
+  </section>
+
+  <section class="side-bar-item d-block d-lg-none"
+           (click)="logout()">
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    <label class="side-bar-item-text fw-bold fs-4"
+           [title]="'Cerrar Sesion'">Cerrar Sesion</label>
+  </section>
+</article>

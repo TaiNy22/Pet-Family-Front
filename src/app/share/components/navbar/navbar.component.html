@@ -1,30 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-major shadow">
   <div class="container-fluid">
-    <a class="navbar-brand text-white mb-2" [routerLink]="['/']">
+    <section class="navbar-bars"
+             (click)="openSideBar()">
+      <span class="fa-solid fa-bars"></span>
+    </section>
+
+    <a class="navbar-brand text-white" [routerLink]="['/secure/pet/pet-list']">
       <h2>Pet Care</h2>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-lg-0" *ngIf="currentUser">
-        <li class="nav-item" *ngIf="currentUser.roles[0] === admin">
-          <a class="nav-link text-white" [routerLink]="['/secure/users']" routerLinkActive="router-link-active" >
-            <h5>Usuarios</h5>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="['/calendar']" routerLinkActive="router-link-active" >
-            <h5>Calendario</h5>
-          </a>
-        </li>
-        <li class="nav-item d-block d-md-block d-lg-none" *ngIf="currentUser">
-          <a class="nav-link text-white" (click)="logout()">
-            <h5>Cerrar Sesión</h5>
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 

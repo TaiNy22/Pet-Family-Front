@@ -16,6 +16,7 @@ import {VaccineHttpService} from "./services/vaccine-http.service";
 import {registerLocaleData} from "@angular/common";
 import es from '@angular/common/locales/es-BO';
 import {TreatmentHttpService} from "./services/treatment-http.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 registerLocaleData(es);
 
@@ -26,6 +27,7 @@ registerLocaleData(es);
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

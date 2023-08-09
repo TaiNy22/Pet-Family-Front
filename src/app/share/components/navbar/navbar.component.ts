@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage.service";
 import {RoleUser, User} from "../../../models/user";
 
@@ -8,14 +8,17 @@ import {RoleUser, User} from "../../../models/user";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public isLoggedIn: boolean;
-  public currentUser: User | null;
+  @Output() public openMenu: EventEmitter<void>;
+
   public admin: RoleUser;
+  public currentUser: User | null;
+  public isLoggedIn: boolean;
 
   constructor(private tokenStorageService: TokenStorageService) {
+    this.openMenu = new EventEmitter<void>();
+    this.admin = RoleUser.ADMIN;
     this.isLoggedIn = false;
     this.currentUser = null;
-    this.admin = RoleUser.ADMIN;
   }
 
   ngOnInit(): void {
@@ -25,6 +28,10 @@ export class NavbarComponent implements OnInit {
   public logout(): void {
     this.isLoggedIn = false;
     this.tokenStorageService.signOut();
+  }
+
+  public openSideBar(): void {
+    this.openMenu.emit();
   }
 
   private listenCurrentUser(): void {

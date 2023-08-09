@@ -1,5 +1,18 @@
 <article class="secure bg-major-dark3">
-  <app-navbar class=" w-100 navbartop"></app-navbar>
+  <app-navbar class="w-100 navbar-top"
+              (openMenu)="openSideBar()"></app-navbar>
+
+  <section class="secure-side-bar"
+           *ngIf="showSideBarBg">
+    <section class="secure-side-bar-bg"
+             (click)="closeSideBar()"></section>
+
+    <section class="secure-side-bar-menu"
+             *ngIf="showSideBar"
+             [@toggleSideBar]>
+      <app-side-bar (close)="closeSideBar()"></app-side-bar>
+    </section>
+  </section>
 
   <section>
     <router-outlet></router-outlet>

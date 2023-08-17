@@ -1,0 +1,33 @@
+<article class="card p-3 shadow">
+  <section class="note-add-form">
+    <form class="my-4">
+      <section class="mb-3">
+        <input class="form-control"
+               type="text"
+               placeholder="Título"
+               [(ngModel)]="title" name="title"/>
+      </section>
+
+      <section class="mb-3">
+        <textarea class="form-control"
+                  type="text"
+                  placeholder="Descripción"
+                  role="switch"
+                  rows="6"
+                  name="description"
+                  maxlength="255"
+                  [(ngModel)]="description"></textarea>
+      </section>
+    </form>
+  </section>
+
+  <section class="d-flex flex-wrap justify-content-between align-items-center">
+    <button class="btn btn-major text-white col-12 col-md-5 mb-2 mb-md-0"
+            (click)="saveNote()">Guardar
+    </button>
+
+    <button class="btn btn-danger text-white col-12 col-md-5"
+            (click)="cancel()">Cancelar
+    </button>
+  </section>
+</article>

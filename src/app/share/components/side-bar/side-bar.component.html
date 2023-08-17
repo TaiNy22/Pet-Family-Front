@@ -12,7 +12,8 @@
   </section>
 
   <section class="side-bar-item"
-           *ngFor="let item of menuList">
+           *ngFor="let item of menuList"
+           (click)="itemSelected(item.url)">
     <span class="fa-solid"
           [ngClass]="item.icon"></span>
 

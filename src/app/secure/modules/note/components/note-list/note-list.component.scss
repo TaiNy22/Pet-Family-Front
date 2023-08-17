@@ -1,0 +1,16 @@
+.masonry-item {
+}
+
+.note-list-add-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-list-add {
+  width: 400px;
+}

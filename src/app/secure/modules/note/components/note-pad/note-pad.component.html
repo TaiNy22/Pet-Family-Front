@@ -1,0 +1,15 @@
+<article class="note-pad p-3">
+  <section class="note-pad-option">
+    <app-options-button [background]="false"
+                        (edit)="onEdit()"
+                        (delete)="onDelete()"></app-options-button>
+  </section>
+
+  <section>
+    <label class="note-pad-title fs-4 fw-bold">{{note.title}}</label>
+  </section>
+
+  <section>
+    <label class="note-pad-text">{{note.description}}</label>
+  </section>
+</article>

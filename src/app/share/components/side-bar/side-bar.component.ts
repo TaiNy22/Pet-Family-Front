@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage.service";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-side-bar',
@@ -11,7 +12,8 @@ export class SideBarComponent implements OnInit {
 
   public menuList: any[] = [];
 
-  constructor(private tokenStorageService: TokenStorageService) {
+  constructor(private tokenStorageService: TokenStorageService,
+              private router: Router) {
     this.close = new EventEmitter<void>();
   }
 
@@ -27,14 +29,19 @@ export class SideBarComponent implements OnInit {
     this.tokenStorageService.signOut();
   }
 
+  public itemSelected(url: string): void {
+    this.router.navigate([`${url}`]).then(() => this.closeSideBar());
+  }
+
   private _initialize(): void {
     this.menuList = [
-      {name: 'Mis Mascotas', icon: 'fa-paw', url: ''},
-      {name: 'Vacunas', icon: 'fa-syringe', url: ''},
-      {name: 'Tratamientos', icon: 'fa-kit-medical', url: ''},
-      {name: 'Consejos', icon: 'fa-book-bookmark', url: ''},
-      {name: 'Notas', icon: 'fa-note-sticky', url: ''},
-      {name: 'Agenda', icon: 'fa-calendar-days', url: ''},
+      {name: 'Mis Mascotas', icon: 'fa-paw', url: '/secure/pet'},
+      {name: 'Vacunas', icon: 'fa-syringe', url: '/secure/vaccines'},
+      {name: 'Tratamientos', icon: 'fa-kit-medical', url: '/secure/treatments'},
+      {name: 'Consejos', icon: 'fa-book-bookmark', url: '/secure/tips'},
+      {name: 'Notas', icon: 'fa-note-sticky', url: '/secure/notes'},
+      {name: 'Tareas', icon: 'fa-note-sticky', url: '/secure/tasks'},
+      {name: 'Agenda', icon: 'fa-calendar-days', url: '/secure/agenda'},
     ]
   }
 }

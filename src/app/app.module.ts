@@ -17,6 +17,8 @@ import {registerLocaleData} from "@angular/common";
 import es from '@angular/common/locales/es-BO';
 import {TreatmentHttpService} from "./services/treatment-http.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TipHttpService} from "./services/tip-http.service";
+import {NoteHttpService} from "./services/note-http.service";
 
 registerLocaleData(es);
 
@@ -36,7 +38,9 @@ registerLocaleData(es);
   ],
   providers: [
     AuthenticationService,
+    NoteHttpService,
     PetHttpService,
+    TipHttpService,
     TreatmentHttpService,
     UserHttpService,
     VaccineHttpService,

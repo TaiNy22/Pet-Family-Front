@@ -1,0 +1,28 @@
+<article class="w-100 note-list">
+  <section class="w-100 px-4 py-2">
+    <label class="fs-3 fw-bold text-white">Lista de Notas</label>
+
+    <ngx-masonry class="py-3 row">
+      <section ngxMasonryItem class="masonry-item col-6 col-md-4 col-lg-3 col-xl-2 pb-3"
+               *ngFor="let item of listNotes">
+        <app-note-pad [note]="item"
+                      (editNote)="editNote($event)"
+                      (deleteNote)="deleteNote($event)"></app-note-pad>
+      </section>
+    </ngx-masonry>
+  </section>
+
+  <app-add-button [title]="'Agregar Nota'"
+                  (pressButton)="addNote()"></app-add-button>
+</article>
+
+<section class="note-list-add-container w-100 h-100"
+         *ngIf="showAddNote">
+  <section class="note-list-add">
+    <app-note-add [user]="userLogged"
+                  [noteEdit]="noteToEdit"
+                  [editModeActive]="editModeActive"
+                  (emitNote)="saveNewNote($event)"
+                  (cancelAdd)="cancelAddNote()"></app-note-add>
+  </section>
+</section>

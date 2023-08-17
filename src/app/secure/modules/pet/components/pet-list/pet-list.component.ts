@@ -64,9 +64,9 @@ export class PetListComponent implements OnInit {
   }
 
   private _initialize(): void {
-    const userId: string = this.tokenStorageService.getUser()?.id as string;
+    const userId: number = this.tokenStorageService.getUser()?.id as number;
 
-    this.petService.getByUserId(userId).pipe(take(1))
+    this.petService.getByUserId(userId.toString()).pipe(take(1))
       .subscribe({
         next: (pets: Pet[]) => {
           this.petList = pets;

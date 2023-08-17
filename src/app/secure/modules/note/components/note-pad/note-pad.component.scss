@@ -1,0 +1,23 @@
+.note-pad {
+  background-color: #fde99f;
+  border-radius: 15px;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.note-pad-option {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.note-pad-title {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.note-pad-text {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}

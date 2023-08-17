@@ -10,6 +10,9 @@ const routes: Routes = [
       {
         path: 'pet', loadChildren: () => import('./modules/pet/pet.module').then(m => m.PetModule)
       },
+      {
+        path: 'notes', loadChildren: () => import('./modules/note/note.module').then(m => m.NoteModule)
+      },
     ]
   },
 ];

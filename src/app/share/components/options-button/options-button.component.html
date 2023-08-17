@@ -1,5 +1,7 @@
 <div class="options-button"
      *ngIf="!showOptions"
+     [ngClass]="{'options-button-box-shadow':boxShadow,
+     'options-button-background':!background}"
      (click)="toggleShowOptions()">
   <i class="fa-solid fa-ellipsis"></i>
 </div>

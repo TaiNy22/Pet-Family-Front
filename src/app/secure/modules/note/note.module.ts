@@ -6,7 +6,7 @@ import {NoteListComponent} from './components/note-list/note-list.component';
 import {NotePadComponent} from './components/note-pad/note-pad.component';
 import {ShareModule} from "../../../share/share.module";
 import {NgxMasonryModule} from "ngx-masonry";
-import { NoteAddComponent } from './components/note-add/note-add.component';
+import {NoteAddComponent} from './components/note-add/note-add.component';
 import {FormsModule} from "@angular/forms";
 
 

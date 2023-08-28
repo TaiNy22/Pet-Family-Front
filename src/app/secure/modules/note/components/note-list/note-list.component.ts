@@ -4,7 +4,6 @@ import {NoteHttpService} from "../../../../../services/note-http.service";
 import {take} from "rxjs";
 import {TokenStorageService} from "../../../../../services/token-storage.service";
 import {User} from "../../../../../models/user";
-import {not} from "rxjs/internal/util/not";
 
 @Component({
   selector: 'app-note-list',

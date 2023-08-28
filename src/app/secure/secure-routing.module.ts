@@ -13,6 +13,9 @@ const routes: Routes = [
       {
         path: 'notes', loadChildren: () => import('./modules/note/note.module').then(m => m.NoteModule)
       },
+      {
+        path: 'tasks', loadChildren: () => import('./modules/task/task.module').then(m => m.TaskModule)
+      },
     ]
   },
 ];

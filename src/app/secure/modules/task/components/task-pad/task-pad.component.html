@@ -1,0 +1,23 @@
+<article class="task-pad p-3">
+  <section class="task-pad-option">
+    <app-options-button [background]="false"
+                        (edit)="onEdit()"
+                        (delete)="onDelete()"></app-options-button>
+  </section>
+
+  <section>
+    <label class="task-pad-title fs-4 fw-bold">{{task.title}}</label>
+  </section>
+
+  <section>
+    <section class="task-pad-item"
+             *ngFor="let item of task.items">
+      <input class="task-add-check"
+             type="checkbox"
+             name="done"
+             [(ngModel)]="item.done"/>
+
+      <label class="ms-2">{{item.description}}</label>
+    </section>
+  </section>
+</article>

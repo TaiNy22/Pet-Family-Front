@@ -19,6 +19,7 @@ import {TreatmentHttpService} from "./services/treatment-http.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TipHttpService} from "./services/tip-http.service";
 import {NoteHttpService} from "./services/note-http.service";
+import {TaskHttpService} from "./services/task-http.service";
 
 registerLocaleData(es);
 
@@ -40,6 +41,7 @@ registerLocaleData(es);
     AuthenticationService,
     NoteHttpService,
     PetHttpService,
+    TaskHttpService,
     TipHttpService,
     TreatmentHttpService,
     UserHttpService,

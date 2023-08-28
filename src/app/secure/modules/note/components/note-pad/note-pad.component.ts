@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Note} from "../../../../../models/note";
 
 @Component({
@@ -6,7 +6,7 @@ import {Note} from "../../../../../models/note";
   templateUrl: './note-pad.component.html',
   styleUrls: ['./note-pad.component.scss']
 })
-export class NotePadComponent implements OnInit {
+export class NotePadComponent {
   @Input() public note!: Note;
 
   @Output() public editNote: EventEmitter<Note>;
@@ -15,9 +15,6 @@ export class NotePadComponent implements OnInit {
   constructor() {
     this.deleteNote = new EventEmitter<Note>();
     this.editNote = new EventEmitter<Note>();
-  }
-
-  ngOnInit(): void {
   }
 
   public onEdit(): void {

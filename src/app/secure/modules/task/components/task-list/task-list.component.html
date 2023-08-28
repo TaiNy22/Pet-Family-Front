@@ -1,0 +1,28 @@
+<article class="w-100 task-list">
+  <section class="w-100 px-4 py-2">
+    <label class="fs-3 fw-bold text-white">Lista de Tareas</label>
+
+    <ngx-masonry class="py-3 row">
+      <section ngxMasonryItem class="masonry-item col-6 col-md-4 col-lg-3 col-xl-2 pb-3"
+               *ngFor="let item of taskList">
+        <app-task-pad [task]="item"
+                      (editTask)="editTask($event)"
+                      (deleteTask)="deleteTask($event)"></app-task-pad>
+      </section>
+    </ngx-masonry>
+  </section>
+
+  <app-add-button [title]="'Agregar Tarea'"
+                  (pressButton)="addTask()"></app-add-button>
+</article>
+
+<section class="task-list-add-container w-100 h-100"
+         *ngIf="showAddTask">
+  <section class="task-list-add">
+    <app-task-add [user]="userLogged"
+                  [taskEdit]="taskToEdit"
+                  [editModeActive]="editModeActive"
+                  (emitTask)="saveNewTask($event)"
+                  (cancelAdd)="cancelAddTask()"></app-task-add>
+  </section>
+</section>

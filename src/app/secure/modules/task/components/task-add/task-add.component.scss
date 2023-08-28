@@ -1,0 +1,50 @@
+@import "src/styles";
+
+.task-add-item-content {
+  position: relative;
+
+  .fa-xmark {
+    color: #dc3232;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.task-add-item {
+  width: 95%;
+}
+
+.task-add-check {
+  //appearance: none;
+  //TODO
+  background-color: white;
+  border: 1px solid $major-dark2;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+}
+
+.task-add-description {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 0.2rem 0.75rem;
+  width: 95%;
+
+  &:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+}
+
+.task-add-btn {
+  color: $major;
+  padding: 5px;
+}

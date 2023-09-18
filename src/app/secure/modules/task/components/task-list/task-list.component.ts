@@ -37,7 +37,8 @@ export class TaskListComponent implements OnInit {
       this.taskHttpService.create(task).pipe(take(1))
         .subscribe({
           next: (task: Task) => {
-            this.taskList.push(task);
+                this._getTasks();
+
             this.showAddTask = false;
           },
           error: err => console.log(err)
@@ -62,6 +63,8 @@ export class TaskListComponent implements OnInit {
 
   public deleteTask(task: Task): void {
     this.taskHttpService.delete(task.id).pipe(take(1)).subscribe();
+
+    this.taskList.splice(this.taskList.indexOf(task), 1);
   }
 
   private _getTasks(): void {

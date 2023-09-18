@@ -27,7 +27,7 @@ export class TaskAddComponent implements OnInit {
     this.title = '';
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.taskEdit && this.editModeActive) {
       this.items = this.taskEdit.items;
       this.title = this.taskEdit.title;
@@ -59,5 +59,9 @@ export class TaskAddComponent implements OnInit {
 
   public removeItem(index: number): void {
     this.items.splice(index, 1);
+  }
+
+  public doneTask(done: boolean, index: number): void {
+    this.items[index].done = done;
   }
 }

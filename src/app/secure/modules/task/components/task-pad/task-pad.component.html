@@ -15,7 +15,8 @@
       <input class="task-add-check"
              type="checkbox"
              name="done"
-             [(ngModel)]="item.done"/>
+             [(ngModel)]="item.done"
+             [disabled]="!editModeActive"/>
 
       <label class="ms-2">{{item.description}}</label>
     </section>

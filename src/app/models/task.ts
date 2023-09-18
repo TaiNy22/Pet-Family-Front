@@ -6,6 +6,7 @@ export interface Task {
 }
 
 export interface ItemTask {
+  id?: number;
   done: boolean;
   description: string;
 }

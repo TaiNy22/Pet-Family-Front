@@ -21,8 +21,8 @@
         <tr class="pet-list-item" *ngFor="let vaccine of vaccineList">
           <td>{{vaccine.type | titlecase}}</td>
           <td>{{vaccine.date | date:'dd MMM yyyy':'UTC+4'}}</td>
-          <td class="text-success" *ngIf="vaccine.done">Si</td>
-          <td class="text-danger" *ngIf="!vaccine.done">No</td>
+          <td class="text-success fw-bold" *ngIf="vaccine.done">Completado</td>
+          <td class="text-danger fw-bold" *ngIf="!vaccine.done">Pendiente</td>
           <td>
             <span class="list-button fa-solid fa-pen text-info me-3"
                   (click)="editVaccine(vaccine)"></span>

@@ -7,6 +7,7 @@ import {Task} from "../../../../../models/task";
   styleUrls: ['./task-pad.component.scss']
 })
 export class TaskPadComponent {
+  @Input() public editModeActive: boolean;
   @Input() public task!: Task;
 
   @Output() public editTask: EventEmitter<Task>;
@@ -15,6 +16,7 @@ export class TaskPadComponent {
   constructor() {
     this.deleteTask = new EventEmitter<Task>();
     this.editTask = new EventEmitter<Task>();
+    this.editModeActive = false;
   }
 
   public onEdit(): void {

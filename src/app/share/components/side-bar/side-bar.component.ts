@@ -30,13 +30,14 @@ export class SideBarComponent implements OnInit {
   }
 
   public itemSelected(url: string): void {
+    console.log('vamoo')
     this.router.navigate([`${url}`]).then(() => this.closeSideBar());
   }
 
   private _initialize(): void {
     this.menuList = [
       {name: 'Mis Mascotas', icon: 'fa-paw', url: '/secure/pet'},
-      {name: 'Vacunas', icon: 'fa-syringe', url: '/secure/vaccines'},
+      {name: 'Vacunas', icon: 'fa-syringe', url: '/secure/pet/vaccine/all-vaccines'},
       {name: 'Tratamientos', icon: 'fa-kit-medical', url: '/secure/treatments'},
       {name: 'Consejos', icon: 'fa-book-bookmark', url: '/secure/tips'},
       {name: 'Notas', icon: 'fa-note-sticky', url: '/secure/notes'},

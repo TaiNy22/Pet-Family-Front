@@ -7,12 +7,14 @@ import {VaccineListComponent} from './components/vaccine-list/vaccine-list.compo
 import {ShareModule} from "../../../share/share.module";
 import {VaccineAddComponent} from './components/vaccine-add/vaccine-add.component';
 import {FormsModule} from "@angular/forms";
+import { VaccineAllListComponent } from './components/vaccine-all-list/vaccine-all-list.component';
 
 @NgModule({
   declarations: [
     VaccineComponent,
     VaccineListComponent,
-    VaccineAddComponent
+    VaccineAddComponent,
+    VaccineAllListComponent
   ],
   imports: [
     CommonModule,

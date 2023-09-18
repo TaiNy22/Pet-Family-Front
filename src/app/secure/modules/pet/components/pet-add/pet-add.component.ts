@@ -46,7 +46,7 @@ export class PetAddComponent implements OnInit {
   }
 
   public cancelAdd(): void {
-    this.router.navigate(['/secure/pet/pet-list'])
+    this.router.navigate(['/secure/pet/pet-list']).then();
   }
 
   private _initialize(): void {

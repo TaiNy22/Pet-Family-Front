@@ -1,0 +1,48 @@
+<article class="vaccine-list container">
+  <section class="container w-100 p-4">
+    <section class="card">
+      <table class="table table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Mascota</th>
+          <th scope="col">Vacuna</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Realizado</th>
+          <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="pet-list-item" *ngFor="let vaccine of vaccineList">
+          <td>{{vaccine.pet.name | titlecase}}</td>
+          <td>{{vaccine.type | titlecase}}</td>
+          <td>{{vaccine.date | date:'dd MMM yyyy':'UTC+4'}}</td>
+          <td class="text-success fw-bold" *ngIf="vaccine.done">Completado</td>
+          <td class="text-danger fw-bold" *ngIf="!vaccine.done">Pendiente</td>
+          <td>
+            <span class="list-button fa-solid fa-pen text-info me-3"
+                  (click)="editVaccine(vaccine)"></span>
+
+            <span class="list-button fa-solid fa-trash text-danger"
+                  (click)="deleteVaccine(vaccine)"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</article>
+
+<section class="vaccine-list-add-container w-100 h-100"
+         *ngIf="showAddVaccine">
+  <section class="vaccine-list-add">
+    <app-vaccine-add [petId]="!!this.vaccineToEdit ? this.vaccineToEdit.pet.id.toString() : ''"
+                     [vaccineEdit]="vaccineToEdit"
+                     [editModeActive]="editModeActive"
+                     (emitVaccine)="saveNewVaccine($event)"
+                     (cancelAdd)="cancelAddVaccine()"></app-vaccine-add>
+  </section>
+</section>
+
+<app-add-button [title]="'Agregar Vacuna'"
+                (pressButton)="addVaccineModal()"></app-add-button>

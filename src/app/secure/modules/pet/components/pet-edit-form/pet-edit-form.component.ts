@@ -38,7 +38,6 @@ export class PetEditFormComponent implements OnInit {
   public submit(): void {
     this.submitted = true;
 
-    console.log('subbb')
     if (this.petForm.invalid) {
       return;
     }
@@ -51,7 +50,7 @@ export class PetEditFormComponent implements OnInit {
   }
 
   public cancelAdd(): void {
-    this.router.navigate(['/secure/pet/pet-list']).then();
+    this.router.navigate(['/secure/pet/pet-info/' + this.petId]).then();
   }
 
   private _initialize(): void {

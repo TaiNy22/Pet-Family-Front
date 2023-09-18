@@ -1,6 +1,9 @@
 <article class="vaccine-add card p-3 shadow">
   <section class="d-flex justify-content-between align-items-center">
-    <label class="fw-bold fs-4 txt-major">Agregar Vacuna</label>
+    <label class="fw-bold fs-4 txt-major"
+           *ngIf="!editModeActive">Agregar Vacuna</label>
+    <label class="fw-bold fs-4 txt-major"
+           *ngIf="editModeActive">Editar Vacuna</label>
 
     <button class="btn"
             (click)="cancel()">

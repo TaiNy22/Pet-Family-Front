@@ -5,21 +5,26 @@
         <input class="form-control"
                type="text"
                placeholder="Título"
+               [ngClass]="{'form-edit' : editModeActive}"
                [(ngModel)]="title" name="title"/>
       </section>
 
-      <section class="mb-3 task-add-item-content"
+      <section class="task-add-item-content"
+               [ngClass]="editModeActive ? 'mb-1' : 'mb-3'"
                *ngFor="let item of items; let index = index">
         <section class="task-add-item">
           <input class="task-add-check"
+                 *ngIf="editModeActive"
                  type="checkbox"
                  name="done"
+                 [ngClass]="{'form-text-edit' : editModeActive}"
                  [checked]="item.done"
                  (change)="doneTask(!item.done, index)"/>
 
           <input class="task-add-description"
                  type="text"
                  placeholder="Nueva Tarea"
+                 [ngClass]="{'form-text-edit' : editModeActive}"
                  [name]="'description' + index"
                  [id]="'description' + index"
                  [(ngModel)]="item.description"

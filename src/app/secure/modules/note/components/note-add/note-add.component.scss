@@ -1,0 +1,19 @@
+@import "src/styles";
+
+.form-edit {
+  border: none;
+  border-bottom: 1px solid $major;
+  border-radius: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.form-text-edit {
+  border: none;
+
+  &:focus {
+    box-shadow: none;
+  }
+}

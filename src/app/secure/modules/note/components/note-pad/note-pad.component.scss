@@ -1,6 +1,7 @@
 .note-pad {
   background-color: #fde99f;
   border-radius: 15px;
+  cursor: pointer;
   height: 100%;
   position: relative;
   width: 100%;
@@ -13,11 +14,13 @@
 }
 
 .note-pad-title {
+  cursor: pointer;
   max-width: 100%;
   overflow-wrap: break-word;
 }
 
 .note-pad-text {
+  cursor: pointer;
   max-width: 100%;
   overflow-wrap: break-word;
 }

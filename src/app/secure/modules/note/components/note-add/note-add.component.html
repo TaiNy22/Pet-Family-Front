@@ -5,6 +5,7 @@
         <input class="form-control"
                type="text"
                placeholder="Título"
+               [ngClass]="{'form-edit' : editModeActive}"
                [(ngModel)]="title" name="title"/>
       </section>
 
@@ -16,6 +17,7 @@
                   rows="6"
                   name="description"
                   maxlength="255"
+                  [ngClass]="{'form-text-edit' : editModeActive}"
                   [(ngModel)]="description"></textarea>
       </section>
     </form>

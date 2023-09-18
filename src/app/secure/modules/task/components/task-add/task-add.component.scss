@@ -25,13 +25,13 @@
   border-radius: 4px;
   cursor: pointer;
   height: 12px;
+  margin-right: 5px;
   width: 12px;
 }
 
 .task-add-description {
   border: 1px solid #dee2e6;
   border-radius: 5px;
-  margin-left: 5px;
   padding: 0.2rem 0.75rem;
   width: 95%;
 
@@ -47,4 +47,22 @@
 .task-add-btn {
   color: $major;
   padding: 5px;
+}
+
+.form-edit {
+  border: none;
+  border-bottom: 1px solid $major;
+  border-radius: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.form-text-edit {
+  border: none;
+
+  &:focus {
+    box-shadow: none;
+  }
 }

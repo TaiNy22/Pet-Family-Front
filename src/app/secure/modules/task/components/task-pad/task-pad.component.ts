@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Task} from "../../../../../models/task";
 
 @Component({
@@ -13,13 +13,25 @@ export class TaskPadComponent {
   @Output() public editTask: EventEmitter<Task>;
   @Output() public deleteTask: EventEmitter<Task>;
 
+  public optionsHover: boolean;
+
   constructor() {
     this.deleteTask = new EventEmitter<Task>();
     this.editTask = new EventEmitter<Task>();
     this.editModeActive = false;
+    this.optionsHover = false;
   }
 
   public onEdit(): void {
+    this.editTask.emit(this.task);
+    this.optionsHover = false;
+  }
+
+  public onEdit2(): void {
+    if (this.optionsHover) {
+      return;
+    }
+
     this.editTask.emit(this.task);
   }
 

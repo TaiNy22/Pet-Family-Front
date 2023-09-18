@@ -1,6 +1,9 @@
-<article class="task-pad p-3">
+<article class="task-pad p-3"
+         (click)="onEdit2()">
   <section class="task-pad-option">
     <app-options-button [background]="false"
+                        (mouseover)="optionsHover = true"
+                        (mouseleave)="optionsHover = false"
                         (edit)="onEdit()"
                         (delete)="onDelete()"></app-options-button>
   </section>

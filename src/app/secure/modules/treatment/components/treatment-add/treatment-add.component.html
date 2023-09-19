@@ -1,6 +1,9 @@
 <article class="treatment-add card p-3 shadow">
   <section class="d-flex justify-content-between align-items-center">
-    <label class="fw-bold fs-4 txt-major">Agregar Tratamiento</label>
+    <label class="fw-bold fs-4 txt-major"
+           *ngIf="!editModeActive">Agregar Tratamiento</label>
+    <label class="fw-bold fs-4 txt-major"
+           *ngIf="editModeActive">Editar Tratamiento</label>
 
     <button class="btn"
             (click)="cancel()">

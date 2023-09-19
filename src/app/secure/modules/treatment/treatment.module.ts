@@ -6,13 +6,15 @@ import {TreatmentComponent} from './treatment.component';
 import {TreatmentListComponent} from './components/treatment-list/treatment-list.component';
 import {ShareModule} from "../../../share/share.module";
 import {FormsModule} from "@angular/forms";
-import { TreatmentAddComponent } from './components/treatment-add/treatment-add.component';
+import {TreatmentAddComponent} from './components/treatment-add/treatment-add.component';
+import {TreatmentAllListComponent} from './components/treatment-all-list/treatment-all-list.component';
 
 @NgModule({
   declarations: [
     TreatmentComponent,
     TreatmentListComponent,
-    TreatmentAddComponent
+    TreatmentAddComponent,
+    TreatmentAllListComponent
   ],
   imports: [
     CommonModule,

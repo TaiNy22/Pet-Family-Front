@@ -28,6 +28,10 @@ $good: #35ad1a;
   color: $major-dark1;
 }
 
+.txt-fs-sm {
+  font-size: 13px;
+}
+
 // Background
 .bg-major-light {
   background-color: $major-light !important;
@@ -55,5 +59,11 @@ $good: #35ad1a;
 
   &:hover {
     background-color: $major-dark2 !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .table {
+    font-size: 13px;
   }
 }

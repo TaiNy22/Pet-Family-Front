@@ -13,3 +13,9 @@
   right: 3px;
   top: 3px;
 }
+
+@media screen and (max-width: 500px) {
+  .pet-card-icon {
+    font-size: 100px;
+  }
+}

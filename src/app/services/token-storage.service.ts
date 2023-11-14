@@ -20,10 +20,11 @@ export class TokenStorageService {
   }
 
   signOut(): void {
+    this.router.navigate(['/public/sign-in']);
     window.sessionStorage.clear();
-    this.currentUser.next(null);
+    console.log('signout')
+    // this.currentUser.subscribe((data) => console.log('data', data));
 
-    this.router.navigate(['/']);
   }
 
   public saveToken(token: string): void {

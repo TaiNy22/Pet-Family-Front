@@ -1,8 +1,8 @@
 export enum PetTypeEnum {
-  ALL,
-  BIRD,
-  CAT,
-  DOG,
-  FISH,
-  MOUSE
+  ALL = 'ALL',
+  BIRD = 'BIRD',
+  CAT = 'CAT',
+  DOG = 'DOG',
+  FISH = 'FISH',
+  MOUSE = 'MOUSE'
 }

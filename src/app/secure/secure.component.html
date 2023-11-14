@@ -14,6 +14,21 @@
     </section>
   </section>
 
+  <section class="tip-container"
+           *ngIf="tipDisplayed && showTips">
+    <div class="tip-cross-btn"
+         title="Cerrar"
+         (click)="closeTips()">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <div class="tip-container-bg">
+      <i class="fa-regular fa-lightbulb"></i>
+    </div>
+
+    <app-tip-detail [tip]="tipDisplayed"></app-tip-detail>
+  </section>
+
   <section>
     <router-outlet></router-outlet>
   </section>

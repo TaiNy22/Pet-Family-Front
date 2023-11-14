@@ -1,6 +1,3 @@
-.pet-view {
-}
-
 .pet-view-back-button {
   align-items: center;
   cursor: pointer;
@@ -21,19 +18,30 @@
     font-size: 200px;
   }
 
+  .txt-info,
   .fa-circle-info {
     color: #0077c7;
   }
 
+  .txt-vacuna,
   .fa-syringe {
     color: #00afaf;
   }
 
+  .txt-tratamientos,
   .fa-briefcase-medical {
     color: #dc3232;
   }
 
   .fa-pills {
     color: #04bea9;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .pet-view-card {
+    .fa-solid {
+      font-size: 130px;
+    }
   }
 }

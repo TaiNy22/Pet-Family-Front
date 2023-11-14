@@ -3,13 +3,7 @@
 
   <section class="h-100 col-12 col-md-6 d-flex justify-content-center align-items-center">
     <form class="card p-5 sign-in-form" [formGroup]="loginForm" (ngSubmit)="submit()">
-      <label class="fw-bold txt-major fs-3 text-center">Iniciar Sesion</label>
-
-      <section class="sign-in-avatar">
-        <app-avatar [form]="avatarForm.ROUNDED"
-                    [height]="'200px'"
-                    [width]="'200px'"></app-avatar>
-      </section>
+      <label class="fw-bold txt-major fs-3 text-center mb-5">Iniciar Sesion</label>
 
       <input type="text" class="form-control mb-3" id="username"
              placeholder="Nombre de Usuario"

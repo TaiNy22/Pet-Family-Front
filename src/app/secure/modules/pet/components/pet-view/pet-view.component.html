@@ -1,4 +1,4 @@
-<article class="bg-major-dark3 container pet-list d-flex flex-column justify-content-between">
+<article class="article-container bg-major-dark3 pet-list d-flex flex-column justify-content-between">
   <section class="pet-view-back-button"
            *ngIf="!showPetInfo"
            [routerLink]="['/secure/pet/pet-list']">
@@ -6,7 +6,7 @@
     <span class="text-white fs-3 ms-2 mb-2">Atras</span>
   </section>
 
-  <section class="w-100 list-head mx-4 text-white"
+  <section class="list-head mx-4 text-white"
            *ngIf="!showPetInfo">
     <section class="pt-4">
       <label class="fs-3 fw-bold text-white">{{pet?.name | titlecase}}</label>
@@ -15,24 +15,33 @@
 
   <section *ngIf="!showPetInfo">
     <section class="d-flex flex-wrap justify-content-around align-items-center">
-      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4"
+               title="Información">
         <section class="pet-view-card card d-flex align-items-center justify-content-center p-2"
                  (click)="toggleShowPetInfo(true)">
           <i class="fa-solid fa-circle-info"></i>
+
+          <label class="fw-bold txt-info">Informacion</label>
         </section>
       </section>
 
-      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4"
+               title="Vacunas">
         <section class="pet-view-card card d-flex align-items-center justify-content-center p-2"
                  [routerLink]="['/secure/pet/vaccine/list/' + pet?.id]">
           <i class="fa-solid fa-syringe"></i>
+
+          <label class="fw-bold txt-vacuna">Vacunas</label>
         </section>
       </section>
 
-      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4">
+      <section class="col-12 col-sm-6 col-md-6 col-lg-6 p-4"
+               title="Tratamientos">
         <section class="pet-view-card card d-flex align-items-center justify-content-center p-2"
                  [routerLink]="['/secure/pet/treatment/list/' + pet?.id]">
           <i class="fa-solid fa-briefcase-medical"></i>
+
+          <label class="fw-bold txt-tratamientos">Tratamientos</label>
         </section>
       </section>
 

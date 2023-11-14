@@ -1,28 +1,26 @@
-<article class="tip">
-  <section class="tip-title">
-    Consejos
+<article class="article-container tip">
+  <section class="py-2">
+    <label class="fs-3 text-white fw-bold">Tips para tus mascotas</label>
   </section>
 
   <section class="tip-pets">
-    <section class="tip-pet-option"
-             *ngFor="let pet of pets">
-      Perro
-    </section>
+    <select class="form-select-sm"
+            name="petTypeSelected"
+            [(ngModel)]="petTypeSelected"
+            (change)="filterTips(petTypeSelected)">
+      <option value="" disabled selected>Filtrar segun mascota</option>
 
-    <section class="tip-pet-option">
-      Gato
-    </section>
+      <option *ngFor="let petType of petsType"
+              [value]="petType">{{petType}}</option>
+    </select>
+  </section>
 
-    <section class="tip-pet-option">
-      Pez
-    </section>
-
-    <section class="tip-pet-option">
-      Ave
-    </section>
-
-    <section class="tip-pet-option">
-      Roedor
-    </section>
+  <section class="tip-list-container">
+    <ngx-masonry class="py-3 row">
+      <section ngxMasonryItem class="masonry-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 pb-3"
+               *ngFor="let tip of tipsFiltered">
+        <app-tip-detail [tip]="tip"></app-tip-detail>
+      </section>
+    </ngx-masonry>
   </section>
 </article>

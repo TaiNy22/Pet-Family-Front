@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {SecureComponent} from './secure.component';
 import {SecureRoutingModule} from "./secure-routing.module";
 import {ShareModule} from "../share/share.module";
+import {TipModule} from "./modules/tip/tip.module";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {ShareModule} from "../share/share.module";
   imports: [
     CommonModule,
     SecureRoutingModule,
-    ShareModule
+    ShareModule,
+    TipModule
   ]
 })
 export class SecureModule {

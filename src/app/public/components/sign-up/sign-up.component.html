@@ -1,13 +1,7 @@
 <article class="sign-up d-flex justify-content-center">
   <section class="h-100 col-12 col-md-6 d-flex justify-content-center align-items-center">
     <form class="card p-5 sign-up-form" [formGroup]="registerForm" (ngSubmit)="submit()">
-      <label class="fw-bold txt-major fs-3 text-center">Registrarse</label>
-
-      <section class="sign-up-avatar">
-        <app-avatar [form]="avatarForm.ROUNDED"
-                    [height]="'200px'"
-                    [width]="'200px'"></app-avatar>
-      </section>
+      <label class="fw-bold txt-major fs-3 text-center mb-5">Registrarse</label>
 
       <input type="text" class="form-control mb-3"
              placeholder="Nombre*"

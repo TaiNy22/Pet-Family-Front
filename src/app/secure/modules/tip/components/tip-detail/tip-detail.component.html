@@ -1,10 +1,11 @@
-<article class="tip-detail">
-  <section>
-    <label>{{tip.title}}</label>
+<article class="tip-detail"
+         *ngIf="tip">
+  <section class="tip-detail-title">
+    <label class="label-txt">{{tip.title}}</label>
   </section>
 
-  <section>
-    <label>{{tip.content}}</label>
+  <section class="tip-detail-content">
+    <label class="label-txt">{{tip.content}}</label>
   </section>
 
   <section>

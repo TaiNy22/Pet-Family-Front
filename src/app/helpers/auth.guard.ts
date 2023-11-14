@@ -12,7 +12,8 @@ export class AuthGuard implements CanActivate {
     const user: any = this.tokenStorageService.getUser;
 
     if (user() !== null) {
-      if (user().roles.indexOf(RoleUser.ADMIN) === -1) {
+      console.log(user().roles.indexOf(RoleUser.ADMIN) !== -1);
+      if (user().roles.indexOf(RoleUser.ADMIN) !== -1) {
         return true;
       }
 
@@ -20,7 +21,7 @@ export class AuthGuard implements CanActivate {
     }
 
     // no ha iniciado sesión, así que redirija a la página de inicio de sesión con la URL de retorno
-    this.router.navigate(['/sing-in'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['/public/sign-in'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }

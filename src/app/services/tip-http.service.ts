@@ -69,6 +69,11 @@ export class TipHttpService {
       );
   }
 
+  getRandomTip(): Observable<Tip> {
+    return this.httpClient.get<Tip>(environment.apiUrl + '/tips/random', this.httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

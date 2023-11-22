@@ -4,6 +4,7 @@ $major: #4D248F;
 $major-dark3: #472183;
 $major-dark2: #381A69;
 $major-dark1: #241142;
+$green-dark1: #289f84;
 
 $good: #35ad1a;
 
@@ -51,6 +52,10 @@ $good: #35ad1a;
 
 .bg-major-dark3 {
   background-color: $major-dark3 !important;
+}
+
+.bg-green-dark1 {
+  background-color: $green-dark1 !important;
 }
 
 // Buttons

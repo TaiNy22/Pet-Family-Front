@@ -1,7 +1,11 @@
 <article class="sign-up d-flex justify-content-center">
   <section class="h-100 col-12 col-md-6 d-flex justify-content-center align-items-center">
     <form class="card p-5 sign-up-form" [formGroup]="registerForm" (ngSubmit)="submit()">
-      <label class="fw-bold txt-major fs-3 text-center mb-5">Registrarse</label>
+      <label class="fw-bold txt-major fs-3 text-center mb-2">Registrarse</label>
+
+      <section class="sign-up-image mb-3">
+        <span class="fa-solid fa-paw txt-major"></span>
+      </section>
 
       <input type="text" class="form-control mb-3"
              placeholder="Nombre*"

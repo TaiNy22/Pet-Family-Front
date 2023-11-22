@@ -10,7 +10,20 @@
 }
 
 .navbar-brand {
+  align-items: center;
+  display: flex;
   padding-bottom: 0;
+  padding-top: 0;
+
+  .fa-solid {
+    font-size: 30px;
+    margin-right: 5px;
+  }
+}
+
+.navbar-title {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 li {

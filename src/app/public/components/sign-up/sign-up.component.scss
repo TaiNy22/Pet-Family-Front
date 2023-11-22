@@ -3,6 +3,16 @@
   width: 100%;
 }
 
+.sign-up-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .fa-paw {
+    font-size: 6em;
+  }
+}
+
 .sign-up-form {
   width: 50%;
 }
@@ -12,7 +22,7 @@
 }
 
 .image {
-  background-image: url("/assets/images/animals-background.png");
+  background-image: url("/assets/images/pet-family-sing-in.jpeg");
   background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;

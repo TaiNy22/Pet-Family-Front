@@ -24,7 +24,15 @@
       </section>
 
       <section class="mb-3">
-        <label class="form-label">Próxima Cita</label>
+        <label class="form-label">Fecha de Consulta</label>
+        <input class="form-control" type="date"
+               [ngModel]="nextDate | date:'yyyy-MM-dd':'UTC+4'"
+               (ngModelChange)="nextDate = $event"
+               name="nextDate"/>
+      </section>
+
+      <section class="mb-3">
+        <label class="form-label">Próxima Consulta</label>
         <input class="form-control" type="date"
                [ngModel]="date | date:'yyyy-MM-dd':'UTC+4'"
                (ngModelChange)="date = $event"

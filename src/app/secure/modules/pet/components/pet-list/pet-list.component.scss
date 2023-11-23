@@ -1,6 +1,10 @@
 .pet-list {
 }
 
+.pet-list-body {
+  height: 97%;
+}
+
 .list-head {
   height: 50px;
   display: flex;
@@ -18,4 +22,20 @@
 
 .pet-list-card {
   height: 300px;
+}
+
+.pet-list-table-1 {
+  max-height: 95%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.pet-list-table {
+  max-height: 90%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

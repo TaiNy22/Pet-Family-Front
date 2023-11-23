@@ -1,8 +1,8 @@
-<article class="w-100 note-list">
-  <section class="w-100 px-4 py-2">
+<article class="w-100 h-100 note-list">
+  <section class="w-100 h-100 px-4 py-2">
     <label class="fs-3 fw-bold text-white">Lista de Notas</label>
 
-    <ngx-masonry class="py-3 row">
+    <ngx-masonry class="py-3 row note-list-container">
       <section ngxMasonryItem class="masonry-item col-6 col-md-4 col-lg-3 col-xl-2 pb-3"
                *ngFor="let item of listNotes">
         <app-note-pad [note]="item"

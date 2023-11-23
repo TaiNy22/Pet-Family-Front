@@ -4,6 +4,7 @@ import {PetHttpService} from "../../../../../services/pet-http.service";
 import {take} from "rxjs";
 import {Pet} from "../../../../../models/pet";
 import {TokenStorageService} from "../../../../../services/token-storage.service";
+import {PetTypeEnum} from "../../../../../models/pet-type.enum";
 
 @Component({
   selector: 'app-pet-list',
@@ -11,21 +12,25 @@ import {TokenStorageService} from "../../../../../services/token-storage.service
   styleUrls: ['./pet-list.component.scss']
 })
 export class PetListComponent implements OnInit {
-  public animalTypes: string[];
+  public petsType: string[];
   public petList: Pet[];
+  public petsFiltered: Pet[];
   public showTableList: boolean;
+  public petTypeSelected: string;
 
   constructor(private tokenStorageService: TokenStorageService,
               private petService: PetHttpService,
               private router: Router) {
+    this.petTypeSelected = '';
     this.showTableList = false;
-    this.animalTypes = [];
+    this.petsFiltered = [];
+    this.petsType = [];
     this.petList = [];
   }
 
   ngOnInit(): void {
     this._initialize();
-    this.animalTypes = ['Ave', 'Gato', 'Perro', 'Pez', 'Roedor', 'Otro...'];
+    this.petsType = ['Todos', 'Ave', 'Gato', 'Perro', 'Pez', 'Roedor', 'Otro...'];
   }
 
   public toggleTableList(): void {
@@ -70,6 +75,7 @@ export class PetListComponent implements OnInit {
       .subscribe({
         next: (pets: Pet[]) => {
           this.petList = pets;
+          this.petsFiltered = pets;
         },
         error: (err) => console.log(err)
       })
@@ -77,5 +83,34 @@ export class PetListComponent implements OnInit {
 
   private _deleteFromList(petId: number): void {
     this.petList = this.petList.filter((pet: Pet) => pet.id !== petId);
+  }
+
+  public filterTips(type: string): void {
+    if (type === 'Todos') {
+      this.petsFiltered = this.petList;
+      return;
+    }
+
+    let petType: PetTypeEnum = PetTypeEnum.ALL;
+    switch (type) {
+      case 'Perro':
+        petType = PetTypeEnum.DOG;
+        break;
+      case 'Gato':
+        petType = PetTypeEnum.CAT;
+        break;
+      case 'Ave':
+        petType = PetTypeEnum.BIRD;
+        break;
+      case 'Roedor':
+        petType = PetTypeEnum.MOUSE;
+        break;
+      case 'Pez':
+        petType = PetTypeEnum.FISH;
+        break;
+    }
+
+    this.petsFiltered = this.petList.filter((pet: Pet) => petType === pet.type
+    );
   }
 }

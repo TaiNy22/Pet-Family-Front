@@ -11,3 +11,12 @@
 .task-list-add {
   width: 400px;
 }
+
+.task-list-container {
+  max-height: 94%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

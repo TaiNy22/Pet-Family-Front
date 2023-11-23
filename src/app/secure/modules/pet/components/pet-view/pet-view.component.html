@@ -1,14 +1,14 @@
-<article class="article-container bg-major-dark3 pet-list d-flex flex-column justify-content-between">
+<article class="article-container bg-major-dark3 pet-list d-flex flex-column ">
   <section class="pet-view-back-button"
            *ngIf="!showPetInfo"
            [routerLink]="['/secure/pet/pet-list']">
     <i class="fa-solid fa-chevron-left"></i>
-    <span class="text-white fs-3 ms-2 mb-2">Atras</span>
+    <span class="text-white fs-3 ms-2">Atras</span>
   </section>
 
   <section class="list-head px-4 text-white"
            *ngIf="!showPetInfo">
-    <section class="pt-4">
+    <section class="pt-2">
       <label class="fs-3 fw-bold text-white">{{pet?.name | titlecase}}</label>
     </section>
   </section>

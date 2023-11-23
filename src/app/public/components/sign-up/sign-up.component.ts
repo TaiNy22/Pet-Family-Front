@@ -82,7 +82,6 @@ export class SignUpComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: (user: any) => {
-          console.log(user);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.loading = false;

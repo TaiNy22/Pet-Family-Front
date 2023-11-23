@@ -23,7 +23,6 @@ export class TaskHttpService {
   }
 
   create(task: Task): Observable<Task> {
-    console.log(task);
     return this.httpClient.post<Task>(environment.apiUrl + '/tasks', JSON.stringify(task), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)

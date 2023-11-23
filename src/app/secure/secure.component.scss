@@ -3,6 +3,10 @@
   height: 100vh;
 }
 
+.secure-body {
+  height: calc(100% - 61px);
+}
+
 .secure-side-bar {
   height: 100%;
   position: absolute;

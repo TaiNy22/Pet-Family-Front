@@ -11,3 +11,12 @@
 .note-list-add {
   width: 400px;
 }
+
+.note-list-container {
+  max-height: 94%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

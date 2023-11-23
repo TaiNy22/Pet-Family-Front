@@ -68,7 +68,19 @@ $good: #35ad1a;
 }
 
 .article-container {
+  height: 100%;
   padding: 2% 3%;
+  width: 100%;
+}
+
+.body-overflow {
+  border-radius: 15px;
+  max-height: 90%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 450px) {

@@ -15,6 +15,7 @@ export class TreatmentAddComponent implements OnInit {
   @Output() public emitTreatment: EventEmitter<any>;
 
   public date: Date;
+  public nextDate: Date;
   public description: string;
   public title: string;
 
@@ -22,6 +23,7 @@ export class TreatmentAddComponent implements OnInit {
     this.emitTreatment = new EventEmitter<any>();
     this.cancelAdd = new EventEmitter<void>();
     this.editModeActive = false;
+    this.nextDate = new Date();
     this.description = '';
     this.date = new Date();
     this.title = '';
@@ -32,6 +34,7 @@ export class TreatmentAddComponent implements OnInit {
       this.title = this.treatmentEdit.title;
       this.description = this.treatmentEdit.description;
       this.date = this.treatmentEdit.date;
+      this.nextDate = this.treatmentEdit.nextDate;
     }
   }
 
@@ -44,12 +47,14 @@ export class TreatmentAddComponent implements OnInit {
       title: this.title,
       date: this.date,
       description: this.description,
+      nextDate: this.nextDate,
       petId: this.petId
     });
   }
 
   public cancel(): void {
     this.date = new Date();
+    this.nextDate = new Date();
     this.title = '';
     this.description = '';
 

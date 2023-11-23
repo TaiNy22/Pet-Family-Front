@@ -30,3 +30,13 @@
 .list-button {
   cursor: pointer;
 }
+
+.treatment-list-body {
+  border-radius: 15px;
+  max-height: 90%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

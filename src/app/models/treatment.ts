@@ -5,6 +5,7 @@ export interface Treatment {
   date: Date;
   description: string;
   id: number;
+  nextDate: Date;
   pet: Pet;
   title: string;
 }

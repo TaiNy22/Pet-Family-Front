@@ -1,9 +1,9 @@
-<article class="article-container tip">
+<article class="w-100 h-100 article-container tip">
   <section class="py-2">
     <label class="fs-3 text-white fw-bold">Tips para tus mascotas</label>
   </section>
 
-  <section class="tip-pets">
+  <section class="tip-pets mb-3">
     <select class="form-select-sm"
             name="petTypeSelected"
             [(ngModel)]="petTypeSelected"
@@ -16,7 +16,7 @@
   </section>
 
   <section class="tip-list-container">
-    <ngx-masonry class="py-3 row">
+    <ngx-masonry class="pb-3 row">
       <section ngxMasonryItem class="masonry-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 pb-3"
                *ngFor="let tip of tipsFiltered">
         <app-tip-detail [tip]="tip"></app-tip-detail>

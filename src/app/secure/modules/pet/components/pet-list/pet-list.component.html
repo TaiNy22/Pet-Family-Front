@@ -1,6 +1,6 @@
-<article class="w-100 pet-list d-flex flex-column justify-content-between">
-  <section class="w-100 list-head px-4 text-white">
-    <section class="py-2">
+<article class="w-100 h-100 article-container pet-list d-flex flex-column justify-content-between">
+  <section class="w-100 list-head text-white">
+    <section class="">
       <label class="fs-3 fw-bold text-white">Lista de Mascotas</label>
     </section>
 
@@ -10,18 +10,23 @@
     </section>
   </section>
 
-  <section>
-    <section class="col-12 col-sm-6 col-md-4 px-4">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Filtrar tipo de animal</option>
-        <option *ngFor="let animal of animalTypes" [value]="animal">{{animal}}</option>
+  <section class="pet-list-body">
+    <section class="tip-pets mb-2">
+      <select class="form-select-sm"
+              name="petTypeSelected"
+              [(ngModel)]="petTypeSelected"
+              (change)="filterTips(petTypeSelected)">
+        <option value="" disabled selected>Filtrar segun mascota</option>
+
+        <option *ngFor="let petType of petsType"
+                [value]="petType">{{petType}}</option>
       </select>
     </section>
 
-    <section class="d-flex flex-wrap justify-content-around align-items-center"
+    <section class="pet-list-table-1 d-flex flex-wrap align-items-center overflow-auto"
              *ngIf="!showTableList">
-      <section class="pet-list-card col-6 col-md-6 col-lg-4 col-xxl-3 p-4"
-               *ngFor="let pet of petList">
+      <section class="pet-list-card col-6 col-md-6 col-lg-4 col-xxl-3 p-3"
+               *ngFor="let pet of petsFiltered">
         <app-pet-card [pet]="pet"
                       (deletePet)="deletePet($event)"
                       (editPet)="editPet($event)"
@@ -29,7 +34,7 @@
       </section>
     </section>
 
-    <section class="w-100"
+    <section class="pet-list-table w-100 overflow-scroll overflow-auto"
              *ngIf="showTableList">
       <section class="card table-responsive">
         <table class="table table-striped table-hover">
@@ -43,8 +48,10 @@
             <th scope="col">Opciones</th>
           </tr>
           </thead>
-          <tbody>
-          <tr class="pet-list-item" *ngFor="let pet of petList"
+
+          <tbody class="pet-list-table-body">
+          <tr class="pet-list-item"
+              *ngFor="let pet of petsFiltered"
               (click)="selectPet(pet.id)">
             <td>{{pet.name | titlecase}}</td>
             <td *ngIf="pet.age">{{pet.age}}</td>

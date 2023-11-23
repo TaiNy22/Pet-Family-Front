@@ -90,7 +90,7 @@ export class VaccineAllListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (vaccines: Vaccine[]) => {
-          this.vaccineList = vaccines;
+          this.vaccineList = vaccines.reverse();
         },
         error: (err) => console.log(err)
       })

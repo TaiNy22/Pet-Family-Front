@@ -1,3 +1,8 @@
 .tip-list-container {
+  max-height: 89%;
+  overflow: auto;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

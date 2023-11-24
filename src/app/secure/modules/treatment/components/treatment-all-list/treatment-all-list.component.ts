@@ -86,7 +86,7 @@ export class TreatmentAllListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (treatments: Treatment[]) => {
-          this.treatmentList = treatments;
+          this.treatmentList = treatments.reverse();
         },
         error: (err) => console.log(err)
       })

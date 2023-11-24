@@ -37,7 +37,7 @@ export class NoteListComponent implements OnInit {
       this.noteHttpService.create(note).pipe(take(1))
         .subscribe({
           next: (note: Note) => {
-            this.listNotes.push(note);
+            this._getNotes();
             this.showAddNote = false;
           },
           error: err => console.log(err)
@@ -70,7 +70,7 @@ export class NoteListComponent implements OnInit {
     this.noteHttpService.getByUserId((this.userLogged?.id as number).toString())
       .pipe(take(1))
       .subscribe({
-        next: (notes: Note[]) => this.listNotes = notes,
+        next: (notes: Note[]) => this.listNotes = notes.reverse(),
         error: err => console.log(err)
       });
   }

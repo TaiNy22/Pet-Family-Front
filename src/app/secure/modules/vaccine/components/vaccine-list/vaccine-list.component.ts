@@ -70,7 +70,7 @@ export class VaccineListComponent implements OnInit {
       this.vaccineService.create(vaccine).pipe(take(1))
         .subscribe({
           next: (vaccine: Vaccine) => {
-            this.vaccineList.push(vaccine);
+            this.vaccineList.unshift(vaccine);
             this.showAddVaccine = false;
           },
           error: (err) => console.log(err)
@@ -98,7 +98,7 @@ export class VaccineListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (vaccines: Vaccine[]) => {
-          this.vaccineList = vaccines;
+          this.vaccineList = vaccines.reverse();
         },
         error: (err) => console.log(err)
       })

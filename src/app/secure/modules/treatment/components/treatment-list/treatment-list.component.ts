@@ -70,7 +70,7 @@ export class TreatmentListComponent implements OnInit {
       this.treatmentService.create(treatment).pipe(take(1))
         .subscribe({
           next: (treatment: Treatment) => {
-            this.treatmentList.push(treatment);
+            this.treatmentList.unshift(treatment);
             this.showAddTreatment = false;
           },
           error: (err) => console.log(err)
@@ -98,7 +98,7 @@ export class TreatmentListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (treatments: Treatment[]) => {
-          this.treatmentList = treatments;
+          this.treatmentList = treatments.reverse();
         },
         error: (err) => console.log(err)
       })

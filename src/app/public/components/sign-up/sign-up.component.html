@@ -20,7 +20,12 @@
       <input type="email" class="form-control mb-3"
              placeholder="Correo electronico*"
              formControlName="email"
-             [ngClass]="{'is-invalid': submitted && form['email'].errors}">
+             [ngClass]="{'is-invalid mb-0': submitted && form['email'].errors}">
+
+      <div class="sign-up-error-alert mb-3"
+           *ngIf="form['email'].errors?.['email']">
+        <li>Debe ser un correo válido </li>
+      </div>
 
       <input type="email" class="form-control mb-3"
              placeholder="Nombre de Usuario*"
@@ -30,7 +35,15 @@
       <input type="password" class="form-control mb-3"
              placeholder="Contraseña*"
              formControlName="password"
-             [ngClass]="{'is-invalid': submitted && form['password'].errors}">
+             [ngClass]="{'is-invalid mb-0': submitted && form['password'].errors}">
+
+      <div class="sign-up-error-alert mb-3"
+           *ngIf="form['password'].errors?.['pattern']">
+        <li>Al menos una mayúscula <br> </li>
+        <li>Al menos una minúscula <br> </li>
+        <li>Al menos un caracter <br> </li>
+        <li>Mínimo 8 caracteres </li>
+      </div>
 
       <input type="number" class="form-control mb-3"
              placeholder="Telefono"

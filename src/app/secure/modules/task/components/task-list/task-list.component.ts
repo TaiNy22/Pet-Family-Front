@@ -71,7 +71,7 @@ export class TaskListComponent implements OnInit {
     this.taskHttpService.getByUserId((this.userLogged?.id as number).toString())
       .pipe(take(1))
       .subscribe({
-        next: (tasks: Task[]) => this.taskList = tasks,
+        next: (tasks: Task[]) => this.taskList = tasks.reverse(),
         error: err => console.log(err)
       });
   }

@@ -41,7 +41,7 @@ export class SideBarComponent implements OnInit {
       {name: 'Consejos', icon: 'fa-book-bookmark', url: '/secure/tips'},
       {name: 'Notas', icon: 'fa-note-sticky', url: '/secure/notes'},
       {name: 'Tareas', icon: 'fa-note-sticky', url: '/secure/tasks'},
-      {name: 'Agenda', icon: 'fa-calendar-days', url: '/secure/agenda'},
+      {name: 'Recordatorios', icon: 'fa-calendar-days', url: '/secure/agenda'},
     ]
   }
 }

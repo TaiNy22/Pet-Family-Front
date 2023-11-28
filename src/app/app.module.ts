@@ -20,6 +20,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TipHttpService} from "./services/tip-http.service";
 import {NoteHttpService} from "./services/note-http.service";
 import {TaskHttpService} from "./services/task-http.service";
+import {FileHttpService} from "./services/file-http.service";
 
 registerLocaleData(es);
 
@@ -39,6 +40,7 @@ registerLocaleData(es);
   ],
   providers: [
     AuthenticationService,
+    FileHttpService,
     NoteHttpService,
     PetHttpService,
     TaskHttpService,

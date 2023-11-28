@@ -28,7 +28,7 @@ export class PetListComponent implements OnInit {
     this.petList = [];
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._initialize();
     this.petsType = ['Todos', 'Ave', 'Gato', 'Perro', 'Pez', 'Roedor', 'Otro...'];
   }

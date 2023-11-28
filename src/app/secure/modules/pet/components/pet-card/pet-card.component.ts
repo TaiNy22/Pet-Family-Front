@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Pet} from "../../../../../models/pet";
+import {FileHttpService} from "../../../../../services/file-http.service";
+import {take} from "rxjs";
 
 @Component({
   selector: 'app-pet-card',
@@ -13,9 +15,10 @@ export class PetCardComponent implements OnInit {
   @Output() public deletePet: EventEmitter<number>;
   @Output() public openPet: EventEmitter<number>;
 
+  public imageAvatar!: any;
   public showOptions: boolean;
 
-  constructor() {
+  constructor(private fileHttpService: FileHttpService) {
     this.deletePet = new EventEmitter<number>();
     this.editPet = new EventEmitter<number>();
     this.openPet = new EventEmitter<number>();
@@ -23,6 +26,7 @@ export class PetCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._getImage();
   }
 
   public selectPet(): void {
@@ -43,5 +47,17 @@ export class PetCardComponent implements OnInit {
 
   public deletePetAction(): void {
     this.deletePet.emit(this.pet.id);
+  }
+
+  private _getImage(): void {
+    if (this.pet.avatar === '') {
+      return;
+    }
+
+    this.fileHttpService.getImage(this.pet.avatar)
+      .pipe(take(1))
+      .subscribe((image: any) => {
+        this.imageAvatar = 'data:image/jpeg;base64,' + image.image;
+      });
   }
 }

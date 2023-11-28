@@ -1,9 +1,11 @@
 .image-section {
+  border-radius: 5px;
   height: 693px;
+  overflow: hidden;
 }
 
 .image {
-  background-image: url("/assets/images/animals-background.png");
+  background-image: url("/assets/images/pet-book.jpeg");
   background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;

@@ -9,10 +9,12 @@
                         (delete)="deletePetAction()"></app-options-button>
   </section>
 
-  <section class="d-flex justify-content-center align-items-center m-auto">
-    <section class="pet-card-avatar"
+  <section class="pet-card-avatar-content d-flex justify-content-center align-items-center m-auto">
+    <section class="pet-card-avatar-image"
              *ngIf="pet.avatar">
-      <!-- TODO-->
+      <img class="img-fluid"
+           [src]="imageAvatar"
+           [alt]="pet.name">
     </section>
 
     <section class="pet-card-avatar"
@@ -27,7 +29,7 @@
     </section>
   </section>
 
-  <section class="py-3">
-    <label class="fw-semibold txt-major fs-4 fw-bolder text-center">{{pet.name | titlecase}}</label>
+  <section class="pet-card-name">
+    <label class="fw-semibold txt-major fs-4 fw-bolder">{{pet.name | titlecase}}</label>
   </section>
 </article>

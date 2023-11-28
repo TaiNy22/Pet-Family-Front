@@ -68,14 +68,12 @@
           </section>
         </section>
 
-        <label class="form-label"
-               for="avatar">Foto:</label>
+        <label class="form-label">Foto:</label>
         <input class="form-control mb-3"
                type="file"
-               id="avatar"
-               formControlName="avatar"
                accept="image/png, image/jpeg"
-               [ngClass]="{'is-invalid': submitted && form['avatar'].errors}">
+               [ngClass]="{'is-invalid': submitted && form['avatar'].errors}"
+               (change)="onImageUpload($event)">
 
         <button class="btn btn-major text-white mb-2"
                 type="submit">

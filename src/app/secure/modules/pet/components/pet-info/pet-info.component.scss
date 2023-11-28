@@ -7,9 +7,13 @@
 }
 
 .pet-info-image {
+  align-items: center;
+  display: flex;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
   height: 400px;
+  overflow: hidden;
   width: 100%;
 }
 

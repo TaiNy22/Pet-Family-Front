@@ -5,6 +5,7 @@ import {PetHttpService} from "../../../../../services/pet-http.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {take} from "rxjs";
 import {Pet} from "../../../../../models/pet";
+import {FileHttpService} from "../../../../../services/file-http.service";
 
 @Component({
   selector: 'app-pet-edit-form',
@@ -18,7 +19,10 @@ export class PetEditFormComponent implements OnInit {
   public petForm!: FormGroup;
   public submitted: boolean;
 
+  private _uploadedImage!: File;
+
   constructor(private tokenStorageService: TokenStorageService,
+              private fileHttpService: FileHttpService,
               private activeRoute: ActivatedRoute,
               private petService: PetHttpService,
               private formBuilder: FormBuilder,
@@ -44,13 +48,21 @@ export class PetEditFormComponent implements OnInit {
     this.petService.edit(this.petId, this.petForm.value)
       .pipe(take(1))
       .subscribe({
-        next: () => this.router.navigate(['/secure/pet/pet-list']).then(),
+        next: () => {
+          this._imageUploadAction();
+          this.router.navigate(['/secure/pet/pet-list']).then();
+        },
         error: (err) => console.log(err)
       })
   }
 
   public cancelAdd(): void {
     this.router.navigate(['/secure/pet/pet-info/' + this.petId]).then();
+  }
+
+  public onImageUpload(event: any) {
+    this._uploadedImage = event.target.files[0];
+    this.form['avatar'].setValue(event.target.files[0].name);
   }
 
   private _initialize(): void {
@@ -96,5 +108,18 @@ export class PetEditFormComponent implements OnInit {
       userId: [this.tokenStorageService.getUser()?.id],
       weight: [this.pet.weight]
     });
+  }
+
+  private _imageUploadAction(): void {
+    const imageFormData = new FormData();
+    imageFormData.append('image', this._uploadedImage, this._uploadedImage.name);
+
+    this.fileHttpService.upload(imageFormData)
+      .pipe(take(1))
+      .subscribe((response) => {
+        if (response.status !== 200) {
+          console.warn('Image not uploaded due to some error!')
+        }
+      });
   }
 }

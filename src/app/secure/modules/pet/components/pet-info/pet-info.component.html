@@ -57,7 +57,9 @@
     <section class="pet-info-colum col-12 col-md-6">
       <section class="d-flex flex-column align-items-center justify-content-center">
         <section class="pet-info-image">
-          <img class="img-fluid" src="" alt="{{pet.name}}">
+          <img class="img-fluid"
+               [src]="imageAvatar"
+               [alt]="pet.name">
         </section>
 
         <label class="fs-2 text-white fw-bolder mt-3">{{pet.name | titlecase}}</label>

@@ -90,9 +90,26 @@ export class VaccineAllListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (vaccines: Vaccine[]) => {
-          this.vaccineList = vaccines.reverse();
+          this.vaccineList = vaccines;
+          this._sortList();
         },
         error: (err) => console.log(err)
       })
+  }
+
+  private _sortList(): void {
+    this.vaccineList.sort((a: Vaccine, b: Vaccine) => {
+      const nameA: string = a.pet.name.toLowerCase();
+      const nameB: string = b.pet.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    });
   }
 }

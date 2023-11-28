@@ -86,9 +86,26 @@ export class TreatmentAllListComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (treatments: Treatment[]) => {
-          this.treatmentList = treatments.reverse();
+          this.treatmentList = treatments;
+          this._sortList();
         },
         error: (err) => console.log(err)
       })
+  }
+
+  private _sortList(): void {
+    this.treatmentList.sort((a: Treatment, b: Treatment) => {
+      const nameA: string = a.pet.name.toLowerCase();
+      const nameB: string = b.pet.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    });
   }
 }

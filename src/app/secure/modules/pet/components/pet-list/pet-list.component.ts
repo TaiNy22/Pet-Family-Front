@@ -5,6 +5,7 @@ import {take} from "rxjs";
 import {Pet} from "../../../../../models/pet";
 import {TokenStorageService} from "../../../../../services/token-storage.service";
 import {PetTypeEnum} from "../../../../../models/pet-type.enum";
+import {Vaccine} from "../../../../../models/vaccine";
 
 @Component({
   selector: 'app-pet-list',
@@ -75,7 +76,7 @@ export class PetListComponent implements OnInit {
       .subscribe({
         next: (pets: Pet[]) => {
           this.petList = pets;
-          this.petsFiltered = pets;
+          this._sortList();
         },
         error: (err) => console.log(err)
       })
@@ -112,5 +113,23 @@ export class PetListComponent implements OnInit {
 
     this.petsFiltered = this.petList.filter((pet: Pet) => petType === pet.type
     );
+  }
+
+  private _sortList(): void {
+    this.petList.sort((a: Pet, b: Pet) => {
+      const nameA: string = a.name.toLowerCase();
+      const nameB: string = b.name.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    this.petsFiltered = this.petList;
   }
 }

@@ -80,6 +80,10 @@ export class PetAddComponent implements OnInit {
 
   private _imageUploadAction(): void {
     const imageFormData = new FormData();
+    if (this._uploadedImage === undefined) {
+      return;
+    }
+
     imageFormData.append('image', this._uploadedImage, this._uploadedImage.name);
 
     this.fileHttpService.upload(imageFormData)

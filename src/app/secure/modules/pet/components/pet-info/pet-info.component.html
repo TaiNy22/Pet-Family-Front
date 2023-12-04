@@ -29,7 +29,7 @@
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6"
                *ngIf="pet.gender === 'female'">Hembra</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6"
-               *ngIf="pet.gender !== 'male' || 'female'">Otro</label>
+               *ngIf="pet.gender !== 'male' && pet.gender !== 'female'">Otro</label>
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">

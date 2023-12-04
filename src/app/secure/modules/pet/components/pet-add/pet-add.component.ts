@@ -16,7 +16,8 @@ export class PetAddComponent implements OnInit {
   public petForm!: FormGroup;
   public submitted: boolean;
 
-  private _uploadedImage!: File;
+  private _uploadedImage!: File | undefined;
+  private _avatarName: string;
 
   constructor(private tokenStorageService: TokenStorageService,
               private fileHttpService: FileHttpService,
@@ -24,6 +25,7 @@ export class PetAddComponent implements OnInit {
               private formBuilder: FormBuilder,
               private router: Router) {
     this.submitted = false;
+    this._avatarName = '';
   }
 
   ngOnInit(): void {
@@ -45,8 +47,11 @@ export class PetAddComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: () => {
-          this._imageUploadAction();
-          this.router.navigate(['/secure/pet/pet-list']);
+          if (this._uploadedImage) {
+            this._imageUploadAction();
+          } else {
+            this.router.navigate(['/secure/pet/pet-list']);
+          }
         },
         error: (err) => console.log(err)
       })
@@ -58,7 +63,13 @@ export class PetAddComponent implements OnInit {
 
   public onImageUpload(event: any) {
     this._uploadedImage = event.target.files[0];
-    this.form['avatar'].setValue(event.target.files[0].name);
+
+    if (!this._uploadedImage) {
+      return;
+    }
+
+    this._avatarName = event.target.files[0].name + '_' + Date.now();
+    this.form['avatar'].setValue(this._avatarName);
   }
 
   private _initialize(): void {
@@ -84,13 +95,15 @@ export class PetAddComponent implements OnInit {
       return;
     }
 
-    imageFormData.append('image', this._uploadedImage, this._uploadedImage.name);
+    imageFormData.append('image', this._uploadedImage, this._avatarName);
 
     this.fileHttpService.upload(imageFormData)
       .pipe(take(1))
       .subscribe((response) => {
         if (response.status !== 200) {
           console.warn('Image not uploaded due to some error!')
+        } else {
+          this.router.navigate(['/secure/pet/pet-list']);
         }
       });
   }

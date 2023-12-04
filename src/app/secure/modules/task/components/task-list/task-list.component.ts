@@ -37,7 +37,7 @@ export class TaskListComponent implements OnInit {
       this.taskHttpService.create(task).pipe(take(1))
         .subscribe({
           next: (task: Task) => {
-                this._getTasks();
+            this._getTasks();
 
             this.showAddTask = false;
           },
@@ -71,7 +71,10 @@ export class TaskListComponent implements OnInit {
     this.taskHttpService.getByUserId((this.userLogged?.id as number).toString())
       .pipe(take(1))
       .subscribe({
-        next: (tasks: Task[]) => this.taskList = tasks.reverse(),
+        next: (tasks: Task[]) => {
+          this.taskList = tasks;
+          this._sortByDate();
+        },
         error: err => console.log(err)
       });
   }
@@ -88,7 +91,7 @@ export class TaskListComponent implements OnInit {
             return;
           }
 
-          this.taskList[this.taskList.indexOf(this.taskToEdit)] = task;
+          this._getTasks();
           this.showAddTask = false;
           this.editModeActive = false;
           this.taskToEdit = undefined;
@@ -99,5 +102,21 @@ export class TaskListComponent implements OnInit {
 
   private _getLoggedUser(): void {
     this.userLogged = this.tokenService.getUser() as User;
+  }
+
+  private _sortByDate(): void {
+    this.taskList.sort((a: Task, b: Task) => {
+      const dateA: Date = a.createdDate;
+      const dateB: Date = b.createdDate;
+
+      if (dateA > dateB) {
+        return -1;
+      }
+      if (dateA < dateB) {
+        return 1;
+      }
+
+      return 0;
+    });
   }
 }

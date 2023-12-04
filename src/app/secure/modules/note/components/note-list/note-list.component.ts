@@ -70,7 +70,10 @@ export class NoteListComponent implements OnInit {
     this.noteHttpService.getByUserId((this.userLogged?.id as number).toString())
       .pipe(take(1))
       .subscribe({
-        next: (notes: Note[]) => this.listNotes = notes.reverse(),
+        next: (notes: Note[]) => {
+          this.listNotes = notes;
+          this._sortByDate();
+        },
         error: err => console.log(err)
       });
   }
@@ -87,7 +90,7 @@ export class NoteListComponent implements OnInit {
             return;
           }
 
-          this.listNotes[this.listNotes.indexOf(this.noteToEdit)] = note;
+          this._getNotes();
           this.showAddNote = false;
           this.editModeActive = false;
           this.noteToEdit = undefined;
@@ -98,5 +101,21 @@ export class NoteListComponent implements OnInit {
 
   private _getLoggedUser(): void {
     this.userLogged = this.tokenService.getUser() as User;
+  }
+
+  private _sortByDate(): void {
+    this.listNotes.sort((a: Note, b: Note) => {
+      const dateA: Date = a.createdDate;
+      const dateB: Date = b.createdDate;
+
+      if (dateA > dateB) {
+        return -1;
+      }
+      if (dateA < dateB) {
+        return 1;
+      }
+
+      return 0;
+    });
   }
 }

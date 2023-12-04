@@ -1,15 +1,16 @@
 <article class="pet-card d-flex justify-content-between flex-column align-items-center card shadow card-pet"
          *ngIf="pet"
          (mouseleave)="hideOptions()"
-         (mouseover)="toggleShowOptions()"
-         (click)="selectPet()">
+         (mouseover)="toggleShowOptions()">
   <section class="pet-card-options"
            *ngIf="showOptions">
-    <app-options-button (edit)="editPetAction()"
+    <app-options-button [background]="true"
+                        (edit)="editPetAction()"
                         (delete)="deletePetAction()"></app-options-button>
   </section>
 
-  <section class="pet-card-avatar-content d-flex justify-content-center align-items-center m-auto">
+  <section class="pet-card-avatar-content d-flex justify-content-center align-items-center m-auto"
+           (click)="selectPet()">
     <section class="pet-card-avatar-image"
              *ngIf="pet.avatar">
       <img class="img-fluid"
@@ -29,7 +30,8 @@
     </section>
   </section>
 
-  <section class="pet-card-name">
+  <section class="pet-card-name"
+           (click)="selectPet()">
     <label class="fw-semibold txt-major fs-4 fw-bolder">{{pet.name | titlecase}}</label>
   </section>
 </article>

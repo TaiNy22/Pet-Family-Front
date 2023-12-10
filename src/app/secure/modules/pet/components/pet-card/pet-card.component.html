@@ -21,12 +21,29 @@
     <section class="pet-card-avatar"
              *ngIf="!pet.avatar"
              [ngSwitch]="pet.type">
-      <i *ngSwitchCase="'ALL'" class="pet-card-icon fa-solid fa-paw"></i>
-      <i *ngSwitchCase="'BIRD'" class="pet-card-icon fa-solid fa-crow"></i>
-      <i *ngSwitchCase="'DOG'" class="pet-card-icon fa-solid fa-dog"></i>
-      <i *ngSwitchCase="'CAT'" class="pet-card-icon fa-solid fa-cat"></i>
-      <i *ngSwitchCase="'FISH'" class="pet-card-icon fa-solid fa-fish-fins"></i>
-      <i *ngSwitchCase="'MOUSE'" class="pet-card-icon fa-solid fa-otter"></i>
+      <span *ngSwitchCase="'ALL'" class="pet-card-icon fa-solid fa-paw"></span>
+
+      <img *ngSwitchCase="'BIRD'" class="pet-card-image"
+           src="./assets/images/animals/bird.svg"
+           type="img/svg"
+           alt="{{pet.name}}"/>
+
+      <img *ngSwitchCase="'DOG'" class="pet-card-image"
+           src="./assets/images/animals/dog.svg"
+           type="img/svg"
+           alt="{{pet.name}}"/>
+
+      <img *ngSwitchCase="'CAT'" class="pet-card-image"
+           src="./assets/images/animals/cat.svg"
+           alt="{{pet.name}}"/>
+
+      <img *ngSwitchCase="'FISH'" class="pet-card-image"
+           src="./assets/images/animals/fish.svg"
+           alt="{{pet.name}}"/>
+
+      <img *ngSwitchCase="'MOUSE'" class="pet-card-image"
+           src="./assets/images/animals/mouse.svg"
+           alt="{{pet.name}}"/>
     </section>
   </section>
 

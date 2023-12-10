@@ -23,5 +23,9 @@
 
 .tip-detail-content {
   padding: 10px 0;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 

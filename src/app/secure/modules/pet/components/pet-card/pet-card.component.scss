@@ -8,6 +8,14 @@
 
 .pet-card-icon {
   font-size: 150px;
+
+  &.fa-paw {
+    color: #381A69;
+  }
+}
+
+.pet-card-image {
+  height: 100%;
 }
 
 .pet-card-options {
@@ -25,6 +33,9 @@
 .pet-card-avatar {
   align-items: center;
   display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .pet-card-avatar-image {

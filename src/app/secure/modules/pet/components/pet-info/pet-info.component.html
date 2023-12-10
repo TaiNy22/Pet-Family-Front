@@ -8,7 +8,7 @@
   <section class="d-flex flex-wrap align-items-center justify-content-center p-4">
     <section class="pet-info-colum col-12 col-md-6">
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3 mt-3" [ngSwitch]="pet.type">
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6 fw-bold">Tipo de mascota:</label>
+        <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Tipo de mascota:</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6" *ngSwitchCase="'BIRD'">Ave</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6" *ngSwitchCase="'CAT'">Gato</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6" *ngSwitchCase="'DOG'">Perro</label>
@@ -18,12 +18,12 @@
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6 fw-bold">Peso:</label>
+        <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Peso:</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6">{{pet.weight}} Kg.</label>
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6 fw-bold">Género:</label>
+        <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Género:</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6"
                *ngIf="pet.gender === 'male'">Macho</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6"
@@ -33,12 +33,12 @@
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6 fw-bold">Edad:</label>
+        <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Edad:</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6">{{pet.age}}</label>
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6 fw-bold">Esterelización:</label>
+        <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Esterelización:</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6" *ngIf="pet.sterilization">SI</label>
         <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6" *ngIf="!pet.sterilization">NO</label>
       </section>
@@ -58,8 +58,14 @@
       <section class="d-flex flex-column align-items-center justify-content-center">
         <section class="pet-info-image">
           <img class="img-fluid"
+               *ngIf="pet.avatar"
                [src]="imageAvatar"
                [alt]="pet.name">
+
+          <div class="img-fluid text-white fs-1 fw-bold"
+               *ngIf="!pet.avatar">
+            Sin imagen
+          </div>
         </section>
 
         <label class="fs-2 text-white fw-bolder mt-3">{{pet.name | titlecase}}</label>

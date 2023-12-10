@@ -7,6 +7,7 @@ $major-dark1: #241142;
 $green-dark1: #289f84;
 
 $good: #35ad1a;
+$green: #00a99d;
 
 //Text
 .txt-major {
@@ -27,6 +28,10 @@ $good: #35ad1a;
 
 .txt-major-dark1 {
   color: $major-dark1;
+}
+
+.txt-green {
+  color: $green !important;
 }
 
 .txt-fs-sm {

@@ -6,18 +6,22 @@ import {TipDetailComponent} from './components/tip-detail/tip-detail.component';
 import {TipRoutingModule} from "./tip-routing.module";
 import {FormsModule} from "@angular/forms";
 import {NgxMasonryModule} from "ngx-masonry";
+import {ShareModule} from "../../../share/share.module";
+import {TipAddComponent} from './components/tip-add/tip-add.component';
 
 @NgModule({
   declarations: [
     TipComponent,
     PetTipsListComponent,
-    TipDetailComponent
+    TipDetailComponent,
+    TipAddComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     TipRoutingModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    ShareModule
   ],
   exports: [
     TipComponent,

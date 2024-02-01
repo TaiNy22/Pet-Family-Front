@@ -21,6 +21,7 @@ import {TipHttpService} from "./services/tip-http.service";
 import {NoteHttpService} from "./services/note-http.service";
 import {TaskHttpService} from "./services/task-http.service";
 import {FileHttpService} from "./services/file-http.service";
+import {WhatsappApiHttpService} from "./services/whatsapp-api-http.service";
 
 registerLocaleData(es);
 
@@ -48,6 +49,7 @@ registerLocaleData(es);
     TreatmentHttpService,
     UserHttpService,
     VaccineHttpService,
+    WhatsappApiHttpService,
     {provide: LOCALE_ID, useValue: 'es-BO'},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

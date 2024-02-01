@@ -6,3 +6,26 @@
     display: none;
   }
 }
+
+.tip-list-add-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tip-list-add {
+  width: 400px;
+}
+
+.tip-list-container {
+  max-height: 88%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

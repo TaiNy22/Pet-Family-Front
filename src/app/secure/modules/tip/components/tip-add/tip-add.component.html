@@ -1,0 +1,47 @@
+<article class="card p-3 shadow">
+  <section class="note-add-form">
+    <form class="my-4">
+      <section class="mb-3">
+        <input class="form-control"
+               type="text"
+               placeholder="Título"
+               [ngClass]="{'form-edit' : editModeActive}"
+               [(ngModel)]="title" name="title"/>
+      </section>
+
+      <section class="mb-3">
+        <textarea class="form-control"
+                  type="text"
+                  placeholder="Descripción"
+                  role="switch"
+                  rows="6"
+                  name="description"
+                  maxlength="255"
+                  [ngClass]="{'form-text-edit' : editModeActive}"
+                  [(ngModel)]="content"></textarea>
+      </section>
+
+      <section class="mb-3">
+        <select class="form-select"
+                name="petTypeSelected"
+                [(ngModel)]="petTypeSelected"
+                (change)="addPetType(petTypeSelected)">
+          <option value="" disabled selected>Tipo de mascota</option>
+
+          <option *ngFor="let petType of petsType"
+                  [value]="petType">{{petType}}</option>
+        </select>
+      </section>
+    </form>
+  </section>
+
+  <section class="d-flex flex-wrap justify-content-between align-items-center">
+    <button class="btn btn-major text-white col-12 col-md-5 mb-2 mb-md-0"
+            (click)="saveTip()">Guardar
+    </button>
+
+    <button class="btn btn-danger text-white col-12 col-md-5"
+            (click)="cancel()">Cancelar
+    </button>
+  </section>
+</article>

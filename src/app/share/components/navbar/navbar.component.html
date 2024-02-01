@@ -8,14 +8,18 @@
     <a class="navbar-brand text-white" [routerLink]="['/secure/pet/pet-list']">
       <span class="fa-solid fa-paw"></span>
 
-      <label class="navbar-title">Pet Family</label>
+      <label class="navbar-title d-none d-lg-block">Pet Family</label>
+
+      <label class="d-block d-lg-none fw-bold fs-5"
+             *ngIf="currentUser">{{currentUser.name}}</label>
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     </div>
   </div>
 
-  <button class="btn d-none d-lg-block text-white logout" *ngIf="currentUser" (click)="logout()">
-    Cerrar Sesión
-  </button>
+  <section class="d-none d-lg-block text-white fw-bold fs-5 navbar-username"
+           *ngIf="currentUser">
+    {{currentUser.name}}
+  </section>
 </nav>

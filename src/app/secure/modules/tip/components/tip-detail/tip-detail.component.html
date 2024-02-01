@@ -1,5 +1,14 @@
 <article class="tip-detail"
-         *ngIf="tip">
+         *ngIf="tip"
+         (mouseover)="optionsHover = true"
+         (mouseleave)="optionsHover = false">
+  <section class="tip-pad-option">
+    <app-options-button *ngIf="optionsHover && userLogged && userLogged.roles[0] === role.ADMIN"
+                        [background]="false"
+                        (edit)="onEdit()"
+                        (delete)="onDelete()"></app-options-button>
+  </section>
+
   <section class="tip-detail-title">
     <label class="label-txt">{{tip.title}}</label>
   </section>

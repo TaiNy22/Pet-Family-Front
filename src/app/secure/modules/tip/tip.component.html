@@ -19,8 +19,26 @@
     <ngx-masonry class="pb-3 row">
       <section ngxMasonryItem class="masonry-item col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 pb-3"
                *ngFor="let tip of tipsFiltered">
-        <app-tip-detail [tip]="tip"></app-tip-detail>
+        <app-tip-detail [tip]="tip"
+                        [userLogged]="userLogged"
+                        (deleteTip)="deleteTip($event)"
+                        (editTip)="editTip($event)"></app-tip-detail>
       </section>
     </ngx-masonry>
   </section>
+
+  <app-add-button *ngIf="userLogged.roles[0] === role.ADMIN"
+                  [title]="'Agregar Consejo'"
+                  (pressButton)="addTip()"></app-add-button>
 </article>
+
+<section class="tip-list-add-container w-100 h-100"
+         *ngIf="showAddTip && userLogged.roles[0] === role.ADMIN">
+  <section class="tip-list-add">
+    <app-tip-add [user]="userLogged"
+                 [tipEdit]="tipToEdit"
+                 [editModeActive]="editModeActive"
+                 (emitTip)="saveNewTip($event)"
+                 (cancelAdd)="cancelAddTip()"></app-tip-add>
+  </section>
+</section>

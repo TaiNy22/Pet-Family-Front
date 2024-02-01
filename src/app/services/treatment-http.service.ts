@@ -68,6 +68,11 @@ export class TreatmentHttpService {
       );
   }
 
+  getAllByUser(userId: number): Observable<Treatment[]> {
+    return this.httpClient.get<Treatment[]>(environment.apiUrl + '/treatments/user/' + userId, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

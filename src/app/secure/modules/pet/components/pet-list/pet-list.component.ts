@@ -5,7 +5,6 @@ import {take} from "rxjs";
 import {Pet} from "../../../../../models/pet";
 import {TokenStorageService} from "../../../../../services/token-storage.service";
 import {PetTypeEnum} from "../../../../../models/pet-type.enum";
-import {Vaccine} from "../../../../../models/vaccine";
 
 @Component({
   selector: 'app-pet-list',

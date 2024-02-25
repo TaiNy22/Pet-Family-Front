@@ -1,6 +1,16 @@
 <article class="card p-3 shadow">
+  <section class="fs-4 txt-major fw-bold mb-2"
+           *ngIf="!editModeActive">
+    Nuevo Consejo
+  </section>
+
+  <section class="fs-4 txt-major fw-bold mb-2"
+           *ngIf="editModeActive">
+    Editar Consejo
+  </section>
+
   <section class="note-add-form">
-    <form class="my-4">
+    <form class="mb-4">
       <section class="mb-3">
         <input class="form-control"
                type="text"

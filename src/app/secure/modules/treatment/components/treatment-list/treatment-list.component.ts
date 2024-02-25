@@ -14,14 +14,17 @@ export class TreatmentListComponent implements OnInit {
   public editModeActive: boolean;
   public petId: string;
   public showAddTreatment: boolean;
+  public showReportTreatment: boolean;
   public treatmentList: Treatment[];
   public treatmentToEdit!: Treatment | undefined;
+  public treatmentToReport!: Treatment;
 
   constructor(private treatmentService: TreatmentHttpService,
               private activeRoute: ActivatedRoute,
               private router: Router) {
-    this.editModeActive = false;
+    this.showReportTreatment = false;
     this.showAddTreatment = false;
+    this.editModeActive = false;
     this.treatmentList = [];
     this.petId = '';
   }
@@ -91,6 +94,11 @@ export class TreatmentListComponent implements OnInit {
     this.treatmentService.delete(treatment.id).pipe(take(1)).subscribe();
 
     this.treatmentList.splice(this.treatmentList.indexOf(treatment), 1);
+  }
+
+  public openReport(treatment: Treatment): void {
+    this.treatmentToReport = treatment;
+    this.showReportTreatment = true;
   }
 
   private _findTreatmentsByPet(): void {

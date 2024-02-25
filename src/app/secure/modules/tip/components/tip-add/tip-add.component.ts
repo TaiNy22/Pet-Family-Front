@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from "../../../../../models/user";
 import {Tip} from "../../../../../models/tip";
 import {PetTypeEnum} from "../../../../../models/pet-type.enum";
-import {Pet} from "../../../../../models/pet";
 
 @Component({
   selector: 'app-tip-add',

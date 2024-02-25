@@ -7,5 +7,6 @@ export interface Treatment {
   id: number;
   nextDate: Date;
   pet: Pet;
+  reminder?: string;
   title: string;
 }

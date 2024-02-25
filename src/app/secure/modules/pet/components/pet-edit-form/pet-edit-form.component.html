@@ -35,13 +35,24 @@
           <option [value]="'other'">Otro</option>
         </select>
 
-        <label class="form-label"
-               for="age">Edad:</label>
-        <input class="form-control mb-3"
-               type="number"
-               id="age"
-               formControlName="age"
-               [ngClass]="{'is-invalid': submitted && form['age'].errors}">
+        <section class="mb-3">
+          <label class="form-label"
+                 for="age">Edad:</label>
+
+          <section class="d-flex">
+            <input class="form-control me-5"
+                   type="number"
+                   id="age"
+                   formControlName="age"
+                   [ngClass]="{'is-invalid': submitted && form['age'].errors}">
+
+            <select class="form-select" id="ageType" formControlName="ageType"
+                    [ngClass]="{'is-invalid': submitted && form['ageType'].errors}">
+              <option [value]="'years'">Años</option>
+              <option [value]="'months'">Meses</option>
+            </select>
+          </section>
+        </section>
 
         <section class="mb-3">
           <label class="form-label"

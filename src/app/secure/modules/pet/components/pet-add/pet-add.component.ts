@@ -79,11 +79,12 @@ export class PetAddComponent implements OnInit {
   private _newForm(): void {
     this.petForm = this.formBuilder.group({
       age: [''],
+      ageType: ['years'],
       avatar: [''],
       gender: ['', Validators.required],
       name: ['', Validators.required],
       sterilization: [false],
-      type: ['', Validators.required],
+      type: ['DOG', Validators.required],
       weight: [''],
       userId: [this.tokenStorageService.getUser()?.id]
     });

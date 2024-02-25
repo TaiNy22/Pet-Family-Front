@@ -25,11 +25,14 @@
           <td>{{treatment.date | date:'dd MMM yyyy':'UTC+4'}}</td>
           <td>{{treatment.nextDate | date:'dd MMM yyyy':'UTC+4'}}</td>
           <td>
-            <span class="list-button fa-solid fa-pen text-info me-3"
+            <span class="list-button fa-solid fa-pen text-info "
                   (click)="editTreatment(treatment)"></span>
 
-            <span class="list-button fa-solid fa-trash text-danger"
+            <span class="list-button fa-solid fa-trash text-danger mx-2"
                   (click)="deleteTreatment(treatment)"></span>
+
+            <span class="list-button fa-solid fa-file text-success"
+                  (click)="openReport(treatment)"></span>
           </td>
         </tr>
         </tbody>
@@ -47,4 +50,11 @@
                        (emitTreatment)="saveNewTreatment($event)"
                        (cancelAdd)="cancelAddTreatment()"></app-treatment-add>
   </section>
+</section>
+
+<section class="treatment-all-list-add-container w-100 h-100"
+         *ngIf="showReportTreatment">
+  <app-treatment-report [treatment]="treatmentToReport"
+                        [petId]="treatmentToReport.pet.id.toString()"
+                        (close)="showReportTreatment = !showReportTreatment"></app-treatment-report>
 </section>

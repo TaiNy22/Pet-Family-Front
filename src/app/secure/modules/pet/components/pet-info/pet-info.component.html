@@ -34,7 +34,12 @@
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">
         <label class="pet-info-txt txt-green col-12 col-md-12 col-lg-6 fw-bold">Edad:</label>
-        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6">{{pet.age}}</label>
+        <label class="pet-info-txt text-white col-12 col-md-12 col-lg-6">{{pet.age}}
+          <span class="pet-info-txt text-white"
+                *ngIf="pet.ageType === 'years'">Años</span>
+          <span class="pet-info-txt text-white"
+                *ngIf="pet.ageType === 'months'">Meses</span>
+        </label>
       </section>
 
       <section class="d-flex flex-wrap align-items-center justify-content-start mb-3">

@@ -98,6 +98,7 @@ export class PetEditFormComponent implements OnInit {
   private _newForm(): void {
     this.petForm = this.formBuilder.group({
       age: [''],
+      ageType: [''],
       avatar: [''],
       gender: ['', Validators.required],
       name: ['', Validators.required],
@@ -111,6 +112,7 @@ export class PetEditFormComponent implements OnInit {
   private _fillForm(): void {
     this.petForm = this.formBuilder.group({
       age: [this.pet.age],
+      ageType: [this.pet.ageType],
       avatar: [this.pet.avatar],
       gender: [this.pet.gender, Validators.required],
       name: [this.pet.name, Validators.required],

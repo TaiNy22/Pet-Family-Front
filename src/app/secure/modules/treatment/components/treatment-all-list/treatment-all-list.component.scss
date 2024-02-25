@@ -30,3 +30,17 @@
 .list-button {
   cursor: pointer;
 }
+
+.treatment-all-list-add-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-success {
+  color: #00a99d !important;
+}

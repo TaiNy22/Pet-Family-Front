@@ -2,6 +2,7 @@ import {PetTypeEnum} from "./pet-type.enum";
 
 export interface Pet {
   age: number;
+  ageType: string;
   avatar: string;
   createdDate: Date;
   id: number;

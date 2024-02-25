@@ -11,7 +11,7 @@
       <label class="navbar-title d-none d-lg-block">Pet Family</label>
 
       <label class="d-block d-lg-none fw-bold fs-5"
-             *ngIf="currentUser">{{currentUser.name}}</label>
+             *ngIf="currentUser">{{currentUser.name | titlecase}}</label>
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -20,6 +20,6 @@
 
   <section class="d-none d-lg-block text-white fw-bold fs-5 navbar-username"
            *ngIf="currentUser">
-    {{currentUser.name}}
+    {{currentUser.name | titlecase}}
   </section>
 </nav>

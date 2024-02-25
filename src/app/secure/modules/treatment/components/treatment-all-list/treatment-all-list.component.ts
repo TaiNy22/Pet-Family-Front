@@ -11,12 +11,16 @@ import {take} from "rxjs";
 export class TreatmentAllListComponent implements OnInit {
   public editModeActive: boolean;
   public showAddTreatment: boolean;
+  public showReportTreatment: boolean;
   public treatmentList: Treatment[];
   public treatmentToEdit!: Treatment | undefined;
+  public treatmentToReport!: Treatment;
 
   constructor(private treatmentService: TreatmentHttpService) {
-    this.editModeActive = false;
+    this.showReportTreatment = false;
+    this.showReportTreatment = false;
     this.showAddTreatment = false;
+    this.editModeActive = false;
     this.treatmentList = [];
   }
 
@@ -79,6 +83,11 @@ export class TreatmentAllListComponent implements OnInit {
     this.treatmentService.delete(treatment.id).pipe(take(1)).subscribe();
 
     this.treatmentList.splice(this.treatmentList.indexOf(treatment), 1);
+  }
+
+  public openReport(treatment: Treatment): void {
+    this.treatmentToReport = treatment;
+    this.showReportTreatment = true;
   }
 
   private _findAllTreatments(): void {

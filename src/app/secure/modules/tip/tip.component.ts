@@ -91,7 +91,6 @@ export class TipComponent implements OnInit {
   }
 
   public saveNewTip(tip: any): void {
-    console.log(tip)
     if (this.editModeActive) {
       this.saveEditTip(tip);
     } else {

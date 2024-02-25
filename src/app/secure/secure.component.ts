@@ -114,33 +114,62 @@ export class SecureComponent implements OnInit, OnDestroy {
       if (treatment.nextDate) {
         let daysToDate: number = new Date(treatment.nextDate).getTime() - date.getTime();
 
-        daysToDate = Math.trunc(daysToDate / (1000 * 60 * 60 * 24) + 1);
-
-        this._sendMessage(daysToDate.toString(), treatment.pet);
+        daysToDate = Math.trunc(daysToDate / (1000 * 60 * 60 * 24) + 2);
+console.log(daysToDate)
+        this._sendMessage(daysToDate.toString(), treatment.pet, treatment);
       }
     });
   }
 
-  private _sendMessage(days: string, pet: Pet): void {
+  private _sendMessage(days: string, pet: Pet, treatment: Treatment): void {
     if (this._loggedUser === null || !this._loggedUser.phone) {
       return;
     }
 
     switch (days) {
       case '0':
-        this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_horas', days, pet.name);
+        if (treatment.reminder !== '0') {
+          this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_horas', days, pet.name);
+          this._updateTreatmentRequest(treatment, pet.id, '0')
+        }
         break;
       case '1':
-        this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio', days, pet.name);
+        if (treatment.reminder !== '1') {
+          this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio', days, pet.name);
+          this._updateTreatmentRequest(treatment, pet.id, '1')
+        }
         break;
       case '3':
-        this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_dias', days, pet.name);
+        if (treatment.reminder !== '3') {
+          this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_dias', days, pet.name);
+          treatment.reminder = '3';
+          this._updateTreatmentRequest(treatment, pet.id, '3')
+        }
         break;
       case '7':
-        this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_dias', days, pet.name);
+        debugger
+        if (treatment.reminder !== '7') {
+          this.whatsappApiHttpService.sendMessage(this._loggedUser.phone.toString(), 'recordatorio_dias', days, pet.name);
+          this._updateTreatmentRequest(treatment, pet.id, '7')
+        }
         break;
       default:
         break;
     }
+  }
+
+  private _updateTreatmentRequest(treatment: Treatment, petId: number, day: string): any {
+    const treatmentRequest: any= {
+      title: treatment.title,
+      date: treatment.date,
+      description: treatment.description,
+      nextDate: treatment.nextDate,
+      petId: petId,
+      reminder: day
+    }
+
+    this.treatmentService.edit(treatment.id, treatmentRequest)
+      .pipe(take(1))
+      .subscribe();
   }
 }

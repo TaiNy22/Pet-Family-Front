@@ -8,13 +8,15 @@ import {ShareModule} from "../../../share/share.module";
 import {FormsModule} from "@angular/forms";
 import {TreatmentAddComponent} from './components/treatment-add/treatment-add.component';
 import {TreatmentAllListComponent} from './components/treatment-all-list/treatment-all-list.component';
+import { TreatmentReportComponent } from './components/treatment-report/treatment-report.component';
 
 @NgModule({
   declarations: [
     TreatmentComponent,
     TreatmentListComponent,
     TreatmentAddComponent,
-    TreatmentAllListComponent
+    TreatmentAllListComponent,
+    TreatmentReportComponent
   ],
   imports: [
     CommonModule,
